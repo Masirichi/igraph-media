@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Igraph Media — On-Demand Operations for Scaling Brands. Data-driven advertising, strategic PR, and digital transformation training built to scale everyday business operations.">
+  <meta name="keywords" content="Igraph Media, digital permanence, advertising agency, strategic PR, business growth">
+  <meta name="author" content="Igraph Media">
+  <meta property="og:title" content="Igraph Media — Engineer Your Brand's Digital Permanence">
+  <meta property="og:description" content="On-Demand Operations for Scaling Brands. Data-driven advertising, strategic PR, and digital transformation training built to scale everyday business operations.">
+  <meta property="og:type" content="website">
+  <title>Igraph Media — On-Demand Operations &amp; Digital Permanence</title>
+
+  <!-- Official Brand Web Icon / Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/logo-icon-white.png">
+
+  <!-- Official Brand Typography: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css?v=2.3">
+  <link rel="stylesheet" href="agent.css?v=2.3">
+  <style>
+    /* Critical Chatbot Protection */
+    .ai-chat-toggle {
+      position: fixed !important;
+      bottom: 28px !important;
+      right: 28px !important;
+      z-index: 99999 !important;
+    }
+    .ai-chat-drawer {
+      display: none;
+      position: fixed !important;
+      bottom: 88px !important;
+      right: 28px !important;
+      z-index: 99998 !important;
+    }
+    .ai-chat-drawer.active {
+      display: flex !important;
+    }
+    .ai-settings-panel {
+      display: none;
+    }
+    .ai-settings-panel.active {
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== 1. UNIFIED HEADER: ADDRESS BAR + TOP NAVIGATION ===== -->
+  <header class="site-header" id="siteHeader">
+    <!-- Top Info Bar -->
+    <div class="address-bar">
+      <div class="container address-container">
+        <div class="address-pill">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span class="address-text">Independent Media &amp; Brand Advisory</span>
+        </div>
+        <div class="address-meta">
+          <a href="tel:+2348153253639" class="address-link">+234 (815) 325-3639</a>
+          <span class="meta-sep">&bull;</span>
+          <a href="mailto:advisory@igraphmedia.com" class="address-link">advisory@igraphmedia.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar (Home, Services, About, Contact us) -->
+    <nav class="navbar" id="navbar">
+      <div class="container nav-container">
+        <!-- 1. Left: Brand Logo -->
+        <a href="#home" class="nav-brand" aria-label="Igraph Media Home">
+          <img src="assets/logo-white.png" alt="Igraph Media" class="nav-logo-image">
+        </a>
+
+        <!-- 2. Center: Centered Header Menu Pill (LineaDS Style) -->
+        <div class="nav-menu-wrapper" id="navLinks">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact us</a>
+        </div>
+
+        <!-- 3. Right: Mobile Hamburger (Explore button removed as requested) -->
+        <div class="nav-actions">
+          <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="index.html" class="mobile-nav-link active">Home</a>
+      <a href="services.html" class="mobile-nav-link">Services</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="contact.html" class="mobile-nav-link">Contact us</a>
+      <div class="mobile-menu-footer">
+        <div class="mobile-address">Independent Brand Advisory</div>
+        <a href="tel:+2348153253639" class="mobile-phone" style="display:block; margin-top:6px; color:#fff;">+234 (815) 325-3639</a>
+        <a href="mailto:advisory@igraphmedia.com">advisory@igraphmedia.com</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ===== 2. HERO SECTION (LineaDS Inspired Structure) ===== -->
+    <section class="hero-section" id="home">
+      <!-- Background subtle dot grid -->
+      <div class="hero-dot-bg" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <!-- Social Proof / Rating Pill -->
+        <div class="hero-social-pill reveal">
+          <div class="avatar-stack">
+            <span class="avatar-circle">SC</span>
+            <span class="avatar-circle">MB</span>
+            <span class="avatar-circle">PK</span>
+            <span class="avatar-circle avatar-brand"><img src="assets/logo-icon-white.png" alt="Igraph"></span>
+          </div>
+          <div class="rating-box">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="rating-text"><strong>4.9</strong> &bull; 300+ Scaled Brands &bull; Verified Impact</span>
+          </div>
+        </div>
+
+        <!-- Declarative Authoritative Headline (H1) -->
+        <h1 class="hero-title reveal reveal-delay-1">
+          Turn Your Brand Story Into <br class="hidden-mobile">
+          <span class="editorial-italic">Real Business Growth.</span>
+        </h1>
+
+        <!-- Subheadline: Clear, Plain, Accessible Diction -->
+        <p class="hero-subtitle reveal reveal-delay-2">
+          We combine targeted digital advertising, strategic public relations, and high-converting websites to help everyday businesses attract customers, build trust, and grow revenue.
+        </p>
+
+        <!-- Primary (Get Started) and Secondary (Explore Services) CTAs -->
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#contact" class="btn-garnet" id="primaryHeroCTA">
+            <span>Get Started</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+            </svg>
+          </a>
+
+          <a href="#services" class="btn-ghost-mono" id="secondaryHeroCTA">
+            <span>Explore Services</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Marquee Ticker: Verified Brands Worked With -->
+      <div class="ticker-wrapper reveal reveal-delay-4">
+        <p class="ticker-heading">Trusted by premier brands and high-growth industry leaders</p>
+        <div class="marquee-track">
+          <div class="marquee-content">
+            <span class="marquee-item">COCU ATELIER</span>
+            <span class="marquee-item">TFZ CAKES AND ACADEMY</span>
+            <span class="marquee-item">90'S MANAGEMENT</span>
+            <span class="marquee-item">CREATOR LINDA</span>
+            <span class="marquee-item">UNIFERA</span>
+            <span class="marquee-item">HEXAVES</span>
+            <span class="marquee-item">GIDAVEST</span>
+            <span class="marquee-item">PERFECTION BEAUTY HOME</span>
+            <span class="marquee-item">DANDYAYANFE</span>
+            <span class="marquee-item">ARIE &amp; ARIN</span>
+            <span class="marquee-item">TECHREGARD</span>
+            <span class="marquee-item">MODERNCRUX</span>
+            <span class="marquee-item">CITYFIDELITY</span>
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+            <span class="marquee-item">COCU ATELIER</span>
+            <span class="marquee-item">TFZ CAKES AND ACADEMY</span>
+            <span class="marquee-item">90'S MANAGEMENT</span>
+            <span class="marquee-item">CREATOR LINDA</span>
+            <span class="marquee-item">UNIFERA</span>
+            <span class="marquee-item">HEXAVES</span>
+            <span class="marquee-item">GIDAVEST</span>
+            <span class="marquee-item">PERFECTION BEAUTY HOME</span>
+            <span class="marquee-item">DANDYAYANFE</span>
+            <span class="marquee-item">ARIE &amp; ARIN</span>
+            <span class="marquee-item">TECHREGARD</span>
+            <span class="marquee-item">MODERNCRUX</span>
+            <span class="marquee-item">CITYFIDELITY</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. SERVICES SECTION (LineaDS 2-Column Feature Cards) ===== -->
+    <section class="section services-section" id="services">
+      <div class="container services-container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="tag-dot"></span>
+            <span>Services</span>
+          </div>
+          <h2 class="section-title">
+            We help brands show up with <span class="editorial-italic">clarity, confidence,</span> and operations that actually work.
+          </h2>
+          <p class="section-subtitle">
+            Five core disciplines designed to help you attract customers, build trust, and grow your business sustainably.
+          </p>
+        </div>
+
+        <!-- 5 Separate Two-Column Feature Cards (LineaDS Replica) -->
+        <div class="services-stack-container">
+          <!-- Card 1: Web Design and Development -->
+          <article class="service-feature-card reveal">
+            <!-- Media Column (Left) -->
+            <div class="card-media-col">
+              <img src="assets/service-web-dev.jpg" alt="Web Design and Development" class="card-image" loading="lazy">
+            </div>
+            <!-- Typography & Content Column (Right) -->
+            <div class="card-content-col">
+              <span class="service-pill-category">Core Architecture // 01</span>
+              <h3 class="card-heading">Web Design &amp; Development</h3>
+              <p class="card-desc">
+                We build fast, beautiful, and mobile-friendly websites designed to turn visitors into paying customers. From custom layouts to smooth e-commerce setups, we make sure your business looks professional on every screen.
+              </p>
+              <!-- Feature Pills (Bottom Right) with Solid Orange Circle Checkmark -->
+              <div class="card-tags-container">
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Responsive</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Optimization</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>CMS Setup</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Domain Setup</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Animation &amp; Interaction</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>SEO Optimized</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: SEO & GEO -->
+          <article class="service-feature-card reveal reveal-delay-1">
+            <div class="card-media-col">
+              <img src="assets/service-seo-geo.jpg" alt="SEO and GEO" class="card-image" loading="lazy">
+            </div>
+            <div class="card-content-col">
+              <span class="service-pill-category">Search Intelligence // 02</span>
+              <h3 class="card-heading">SEO &amp; GEO (Search &amp; AI Engine Optimization)</h3>
+              <p class="card-desc">
+                Get found by customers searching on Google and AI tools like ChatGPT, Gemini, and Perplexity. We optimize your website content, search rankings, and business listings so your brand gets recommended first when buyers are ready to purchase.
+              </p>
+              <div class="card-tags-container">
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Generative Engine (GEO)</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Knowledge Graph Authority</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Technical Audits</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>AI Citation Modeling</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Core Web Vitals</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Intent Keyword Capture</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Social Media Management -->
+          <article class="service-feature-card reveal reveal-delay-2">
+            <div class="card-media-col">
+              <img src="assets/service-social-media.jpg" alt="Social Media Management" class="card-image" loading="lazy">
+            </div>
+            <div class="card-content-col">
+              <span class="service-pill-category">Narrative Distribution // 03</span>
+              <h3 class="card-heading">Social Media Management</h3>
+              <p class="card-desc">
+                We manage your social media channels from start to finish—creating high-quality content, writing engaging captions, and building a loyal community across Instagram, TikTok, LinkedIn, and YouTube so your brand stays top-of-mind.
+              </p>
+              <div class="card-tags-container">
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Executive Stature</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Creative Direction</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Community Protocols</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Content Sprints</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Brand Tone of Voice</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Engagement Velocity</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Digital Advertising -->
+          <article class="service-feature-card reveal reveal-delay-1">
+            <div class="card-media-col">
+              <img src="assets/service-advertising.jpg" alt="Digital Advertising" class="card-image" loading="lazy">
+            </div>
+            <div class="card-content-col">
+              <span class="service-pill-category">Capital Velocity // 04</span>
+              <h3 class="card-heading">Digital Advertising</h3>
+              <p class="card-desc">
+                Run targeted ad campaigns on Google, Meta (Facebook &amp; Instagram), and LinkedIn that bring in real, paying customers. We continuously optimize your ad spend so every dollar generates maximum sales and qualified leads.
+              </p>
+              <div class="card-tags-container">
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Paid Acquisition</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Media Arbitrage</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Predictive LTV Modeling</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Creative A/B Sprints</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Revenue Attribution</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Funnel Scaling</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Public Relations -->
+          <article class="service-feature-card reveal reveal-delay-2">
+            <div class="card-media-col">
+              <img src="assets/service-pr.jpg" alt="Public Relations" class="card-image" loading="lazy">
+            </div>
+            <div class="card-content-col">
+              <span class="service-pill-category">Reputational Stature // 05</span>
+              <h3 class="card-heading">Public Relations</h3>
+              <p class="card-desc">
+                Get your brand featured in trusted news media, popular podcasts, and industry publications. We help you build instant credibility, earn customer trust, and establish your business as a recognized leader in your space.
+              </p>
+              <div class="card-tags-container">
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Tier-1 Placements</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Executive Op-Eds</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Press Syndication</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Crisis Mitigation</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Investor Perception</span>
+                </span>
+                <span class="feature-tag">
+                  <svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#f97316"/>
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Keynote Placement</span>
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. CLIENT IMPACT & WORKS (LineaDS "Collaboration that moved the needle") ===== -->
+    <section class="section" id="works">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="tag-dot"></span>
+            <span>Proven Results</span>
+          </div>
+          <h2 class="section-title">
+            Real results for <span class="editorial-italic">businesses we partner with.</span>
+          </h2>
+          <p class="section-subtitle">
+            Measurable sales growth, student enrollments, and brand visibility delivered for our clients.
+          </p>
+        </div>
+
+        <div class="impact-cards-grid">
+          <!-- Case 1: Cocu Atelier -->
+          <div class="impact-card reveal reveal-delay-1">
+            <div class="impact-metric">21K &amp; 5M+ Traffic</div>
+            <h3 class="impact-title">Cocu Atelier</h3>
+            <p class="impact-desc">
+              Scaled social media presence to 21,000 followers within 3 months purely organically, generating over 5 million organic traffic impressions and high-ticket client conversions.
+            </p>
+            <div class="impact-footer">
+              <span>Growth: 21k Organic Followers</span>
+              <span class="impact-dot">&bull;</span>
+              <span>5M+ Impressions</span>
+            </div>
+          </div>
+
+          <!-- Case 2: TFZ Cakes and Academy -->
+          <div class="impact-card reveal reveal-delay-2">
+            <div class="impact-metric">Cohort Sellouts</div>
+            <h3 class="impact-title">TFZ Cakes and Academy</h3>
+            <p class="impact-desc">
+              Engineered automated lead generation funnels and enrollment marketing for their professional training academy, consistently filling every student cohort with qualified applicants.
+            </p>
+            <div class="impact-footer">
+              <span>Result: Qualified Academy Leads</span>
+              <span class="impact-dot">&bull;</span>
+              <span>100% Cohort Capacity</span>
+            </div>
+          </div>
+
+          <!-- Case 3: 90's Management -->
+          <div class="impact-card reveal reveal-delay-3">
+            <div class="impact-metric">3x Engagement</div>
+            <h3 class="impact-title">90's Management</h3>
+            <p class="impact-desc">
+              Completely revamped multi-platform social media strategy and content deployment, tripling audience engagements on Instagram across executive and talent portfolios.
+            </p>
+            <div class="impact-footer">
+              <span>Strategy: Instagram Architecture</span>
+              <span class="impact-dot">&bull;</span>
+              <span>300% Engagement Surge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. WHY CHOOSE US (LineaDS Styled Bento Grid Replica) ===== -->
+    <section class="section why-choose-us-section" id="benefits">
+      <div id="why-choose-us" style="position: absolute; margin-top: -100px;"></div>
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="tag-dot"></span>
+            <span>Why Choose Us</span>
+          </div>
+          <h2 class="section-title">
+            Why choose <span class="editorial-italic">Igraph Media</span>
+          </h2>
+          <p class="section-subtitle">
+            Built for everyday business owners and growing companies that want predictable sales, professional brand authority, and reliable ongoing support.
+          </p>
+        </div>
+
+        <!-- Bento Canvas with Warm Bone/Stone Frame (Matching Reference Mockup) -->
+        <div class="why-choose-canvas reveal reveal-delay-1">
+          <!-- macOS Browser Window Mockup Header Bar -->
+          <div class="why-window-header" aria-hidden="true">
+            <div class="why-window-dots">
+              <span class="why-dot why-dot-red"></span>
+              <span class="why-dot why-dot-yellow"></span>
+              <span class="why-dot why-dot-green"></span>
+            </div>
+          </div>
+
+          <div class="why-choose-bento">
+            
+            <!-- Row 1: Card 1 (Formatted for Every Platform) + Card 2 (Trusted by 100+ Businesses) -->
+            <div class="why-bento-row why-bento-row-top">
+              
+              <!-- Card 1 (Top-Left, Wide): Formatted for Every Platform -->
+              <div class="why-card why-card-platforms">
+                <div class="why-platforms-text">
+                  <h3 class="why-card-title">Perfectly Formatted for Every Platform</h3>
+                  <p class="why-card-desc">
+                    Every edit and campaign is optimized for Google, Meta, TikTok, and YouTube to ensure maximum visibility and business growth.
+                  </p>
+                </div>
+                <div class="why-app-matrix" aria-label="Commercial Customer Acquisition Platforms">
+                  <!-- Column 1 -->
+                  <div class="why-app-col">
+                    <!-- Google -->
+                    <div class="why-app-tile" title="Google Search &amp; Ads">
+                      <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"/>
+                      </svg>
+                    </div>
+                    <!-- TikTok -->
+                    <div class="why-app-tile" title="TikTok Commercial Growth">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="#000000">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-.88-.07A6.34 6.34 0 0 0 3 15.67a6.34 6.34 0 0 0 9.29 5.56 6.31 6.31 0 0 0 3.38-5.56V8.6a8.27 8.27 0 0 0 4.79 1.52v-3.43a4.85 4.85 0 0 1-.87 0z"/>
+                      </svg>
+                    </div>
+                    <!-- Instagram -->
+                    <div class="why-app-tile" title="Instagram Marketing">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                      </svg>
+                    </div>
+                    <!-- Ghost Metallic Tile -->
+                    <div class="why-app-tile-ghost" aria-hidden="true"></div>
+                  </div>
+
+                  <!-- Column 2 (Offset / Staggered) -->
+                  <div class="why-app-col why-app-col-offset">
+                    <!-- Ghost Metallic Tile -->
+                    <div class="why-app-tile-ghost" aria-hidden="true"></div>
+                    <!-- Meta -->
+                    <div class="why-app-tile" title="Meta Commercial Advertising">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#0081FB">
+                        <path d="M16.96 4.5c-1.97 0-3.66 1.04-4.96 2.65C10.7 5.54 9.01 4.5 7.04 4.5 3.51 4.5 1 7.35 1 11.23c0 4.19 3.1 8.27 6.42 8.27 2.18 0 3.8-1.12 4.58-2.31.78 1.19 2.4 2.31 4.58 2.31 3.32 0 6.42-4.08 6.42-8.27 0-3.88-2.51-6.73-6.04-6.73zm-9.92 12.6c-2.32 0-4.34-3.32-4.34-5.87 0-2.34 1.48-4.33 3.94-4.33 1.94 0 3.37 1.25 4.31 2.8-1.12 2.16-2.43 5.4-3.91 7.4zm9.92 0c-1.48-2-2.79-5.24-3.91-7.4.94-1.55 2.37-2.8 4.31-2.8 2.46 0 3.94 1.99 3.94 4.33 0 2.55-2.02 5.87-4.34 5.87z"/>
+                      </svg>
+                    </div>
+                    <!-- YouTube -->
+                    <div class="why-app-tile" title="YouTube Commercial Funnels">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="#000000">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                    </div>
+                    <!-- Ghost Metallic Tile -->
+                    <div class="why-app-tile-ghost" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 (Top-Right, Narrow): Trusted by 100+ Businesses -->
+              <div class="why-card why-card-trusted">
+                <div class="why-stars-row" aria-label="5 stars rating">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <h3 class="why-card-title">Trusted by 100+ Businesses</h3>
+                <p class="why-card-desc">
+                  From rising startups to established brands, we've helped over 100 business owners scale their commercial presence, attract loyal customers, and build lasting authority.
+                </p>
+                <div class="why-brands-pills">
+                  <span class="why-brand-pill">90's Management</span>
+                  <span class="why-brand-pill">TFZ Cakes &amp; Academy</span>
+                  <span class="why-brand-pill">Cocu Atelier</span>
+                  <span class="why-brand-pill">Creator Linda</span>
+                  <span class="why-brand-pill">DandyAyanfe</span>
+                  <span class="why-brand-pill">Arie &amp; Arin</span>
+                  <span class="why-brand-pill">Hexaves</span>
+                  <span class="why-brand-pill">Perfection Beauty Home</span>
+                  <span class="why-brand-pill">Gidavest</span>
+                  <span class="why-brand-pill">Techregard</span>
+                  <span class="why-brand-pill">Moderncrux</span>
+                  <span class="why-brand-pill">Cityfidelity</span>
+                  <span class="why-brand-pill">Unifera</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Row 2: Card 3 (Organic Reach) + Card 4 (Dedicated Partnership) -->
+            <div class="why-bento-row why-bento-row-bottom">
+              
+              <!-- Card 3 (Bottom-Left, Narrow): 5M+ Organic Impressions -->
+              <div class="why-card why-card-reach">
+                <div class="why-eye-icon" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="why-reach-num">5M+</div>
+                <div class="why-reach-label">Organic Impressions Generated</div>
+              </div>
+
+              <!-- Card 4 (Bottom-Right, Wide): Dedicated Partnership -->
+              <div class="why-card why-card-partnership">
+                <div class="why-partnership-media">
+                  <img src="assets/team-collaboration.jpg" alt="Igraph Media Collaboration Team" class="why-partnership-img" loading="lazy">
+                  <div class="why-partnership-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="why-partnership-content">
+                  <div class="why-refresh-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"/>
+                    </svg>
+                  </div>
+                  <h3 class="why-card-title">Dedicated Partnership</h3>
+                  <p class="why-card-desc">
+                    We collaborate closely with your leadership to architect, launch, and scale high-impact commercial campaigns.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. ABOUT SECTION (Institutional Ethos & Leadership) ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="tag-dot"></span>
+            <span>About Igraph Media</span>
+          </div>
+          <h2 class="section-title">
+            Establishing <span class="editorial-italic">Enduring Brand Authority</span>
+          </h2>
+          <p class="section-subtitle">
+            Uniting African operational ingenuity with global market standards.
+          </p>
+        </div>
+
+        <div class="about-split-layout">
+          <div class="about-story-card reveal reveal-delay-1">
+            <div class="about-meta-tag">
+              <img src="assets/logo-icon-white.png" alt="Igraph Mark" class="about-mini-mark">
+              <span>Established 2024 &bull; Independent Brand Advisory</span>
+            </div>
+            <h3 class="about-headline">Own Your Narrative, Command Your Market</h3>
+            <div class="about-paragraphs">
+              <p class="about-intro-text">
+                We believe that every ambitious startup and small business possesses a story powerful enough to challenge industry leaders. You do not just need promotion—you need to own your narrative. Our core purpose is to give growing brands the voice, authority, and presence required to be heard clearly in a noisy marketplace.
+              </p>
+
+              <!-- Lower Section: Emboldened and animated to change colors on hover -->
+              <div class="about-lower-section" tabindex="0">
+                <div class="about-glow-orb" aria-hidden="true"></div>
+                <div class="about-lower-header">
+                  <span class="lower-tag-dot"></span>
+                  <span class="lower-tag-label">The Growth Architecture</span>
+                </div>
+                <p class="about-emboldened-copy">
+                  &ldquo;By combining data-backed public relations strategies with precise, targeted digital advertising, we turn authentic brand stories into measurable commercial success. We focus on clear facts, persuasive positioning, and consistent execution to help you earn customer trust, outmaneuver competitors, and build lasting market leadership.&rdquo;
+                </p>
+              </div>
+            </div>
+
+            <div class="about-hq-badge">
+              <div>
+                <div class="hq-title">Commercial Excellence</div>
+                <div class="hq-sub">Strategy &bull; Public Relations &bull; Growth</div>
+              </div>
+              <a href="#contact" class="btn-garnet">Get Started</a>
+            </div>
+          </div>
+
+          <div class="about-metrics-stack reveal reveal-delay-2">
+            <div class="about-stat-box">
+              <div class="stat-big">100%</div>
+              <div class="stat-name">Narrative Authority</div>
+              <p class="stat-info">Enduring brand positioning that commands lasting market leadership.</p>
+            </div>
+            <div class="about-stat-box">
+              <div class="stat-big">5M+</div>
+              <div class="stat-name">Organic Reach &amp; Traffic</div>
+              <p class="stat-info">Data-backed public relations combined with precision digital advertising.</p>
+            </div>
+            <div class="about-stat-box">
+              <div class="stat-big">14 Days</div>
+              <div class="stat-name">Rapid Market Deployment</div>
+              <p class="stat-info">Persuasive positioning and targeted execution without delay.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. TESTIMONIALS (Continuous Moving White Cards Across Site) ===== -->
+    <section class="section testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="tag-dot"></span>
+            <span>Client Testimonials</span>
+          </div>
+          <h2 class="section-title">
+            We love what we do, and <span class="editorial-italic">they love the results.</span>
+          </h2>
+          <p class="section-subtitle">
+            Authentic feedback from business leaders and founders whose commercial velocity and media reach we accelerate.
+          </p>
+        </div>
+      </div>
+
+      <!-- Continuous Moving Testimonials Carousel / Infinite Slider -->
+      <div class="testimonials-slider-wrapper">
+        <div class="testimonials-marquee-track">
+          <!-- Track Group 1 (The 4 Brands) -->
+          <div class="testimonials-track-group">
+            <!-- 1. Cocu Atelier -->
+            <div class="testimonial-card-white">
+              <div class="testimonial-card-badge">
+                <span class="badge-dot"></span>
+                <span>21K Organic &bull; 5M+ Traffic</span>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Igraph Media grew our social media presence to 21k within 3 months organically, amassing over 5 million organic traffic impressions and establishing our luxury atelier as an undisputed category leader.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar-dark">KK</div>
+                <div class="author-info">
+                  <div class="author-name">Katrin K.</div>
+                  <div class="author-role">Creative Director, Cocu Atelier</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. TFZ Cakes and Academy -->
+            <div class="testimonial-card-white">
+              <div class="testimonial-card-badge">
+                <span class="badge-dot"></span>
+                <span>Qualified Academy Leads</span>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Igraph Media helped us generate high-intent qualified leads for our training programs. Their acquisition funnels consistently fill our culinary cohorts with passionate, paying students.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar-dark">TO</div>
+                <div class="author-info">
+                  <div class="author-name">Tobarin .O</div>
+                  <div class="author-role">Founder, TFZ Cakes and Academy</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. 90's Management -->
+            <div class="testimonial-card-white">
+              <div class="testimonial-card-badge">
+                <span class="badge-dot"></span>
+                <span>3x Instagram Engagement</span>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Managing executive brand portfolios requires absolute media precision. Igraph Media revamped our entire social media strategy and tripled our engagements on Instagram across every campaign.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar-dark">90</div>
+                <div class="author-info">
+                  <div class="author-name">Executive Operations</div>
+                  <div class="author-role">90's Management</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Creator Linda -->
+            <div class="testimonial-card-white">
+              <div class="testimonial-card-badge">
+                <span class="badge-dot"></span>
+                <span>Client Content Strategy</span>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;We collaborated with Igraph Media to design custom content strategies for our clients&apos; business success. Their strategic rigor and execution power delivered outstanding commercial growth.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar-dark">CL</div>
+                <div class="author-info">
+                  <div class="author-name">Linda</div>
+                  <div class="author-role">Founder &amp; Strategist, Creator Linda</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track Group 2 (Identical Duplicate for Infinite Continuous Loop) -->
+          <div class="testimonials-track-group" aria-hidden="true">
+            <!-- 1. Cocu Atelier -->
+            <div class="testimonial-card-white">
+              <div class="testimonial-card-badge">
+                <span class="badge-dot"></span>
+                <span>21K Organic &bull; 5M+ Traffic</span>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Igraph Media grew our social media presence to 21k within 3 months organically, amassing over 5 million organic traffic impressions and establishing our luxury atelier as an undisputed category leader.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar-dark">KK</div>
+                <div class="author-info">
+                  <div class="author-name">Katrin K.</div>
+                  <div class="author-role">Creative Director, Cocu Atelier</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. TFZ Cakes and Academy -->
+            <div class="testimonial-card-white">
+              <div class="testimonial-card-badge">
+                <span class="badge-dot"></span>
+                <span>Qualified Academy Leads</span>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Igraph Media helped us generate high-intent qualified leads for our training programs. Their acquisition funnels consistently fill our culinary cohorts with passionate, paying students.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar-dark">TO</div>
+                <div class="author-info">
+                  <div class="author-name">Tobarin .O</div>
+                  <div class="author-role">Founder, TFZ Cakes and Academy</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. 90's Management -->
+            <div class="testimonial-card-white">
+              <div class="testimonial-card-badge">
+                <span class="badge-dot"></span>
+                <span>3x Instagram Engagement</span>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Managing executive brand portfolios requires absolute media precision. Igraph Media revamped our entire social media strategy and tripled our engagements on Instagram across every campaign.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar-dark">90</div>
+                <div class="author-info">
+                  <div class="author-name">Executive Operations</div>
+                  <div class="author-role">90's Management</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Creator Linda -->
+            <div class="testimonial-card-white">
+              <div class="testimonial-card-badge">
+                <span class="badge-dot"></span>
+                <span>Client Content Strategy</span>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;We collaborated with Igraph Media to design custom content strategies for our clients&apos; business success. Their strategic rigor and execution power delivered outstanding commercial growth.&rdquo;
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar-dark">CL</div>
+                <div class="author-info">
+                  <div class="author-name">Linda</div>
+                  <div class="author-role">Founder &amp; Strategist, Creator Linda</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 10. FREQUENTLY ASKED QUESTIONS (LineaDS FAQ Accordion) ===== -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="tag-dot"></span>
+            <span>FAQ</span>
+          </div>
+          <h2 class="section-title">Frequently Asked Questions.</h2>
+          <p class="section-subtitle">Everything you need to know about our partnership structure and operational standards.</p>
+        </div>
+
+        <div class="faq-accordion reveal reveal-delay-1">
+          <!-- Q1 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>How quickly will we see results?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We begin working on your project within 48 hours of onboarding. Initial ad campaigns, website improvements, and PR outreach typically go live within 7 to 14 business days, with performance reporting delivered regularly.</p>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Do you work with our existing team or handle everything yourselves?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We can do both! We can take care of your entire digital advertising, website design, and PR from start to finish, or we can guide and train your in-house team with step-by-step playbooks so your business builds permanent internal skills.</p>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Who owns the advertising accounts, websites, and content?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>You own 100% of everything. All ad accounts, websites, creative graphics, and PR media archives belong entirely to your business. We never lock you out or hold your assets hostage.</p>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Can we adjust or scale our services as we grow?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, completely. Our services are flexible. As your business grows or your seasonal needs change, you can easily add new services or adjust your focus without penalties or complicated contracts.</p>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>What confidentiality and guarantees do we receive?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We sign mutual Non-Disclosure Agreements (NDAs), refine campaigns until your assets hit your exact commercial goals, and maintain strict confidentiality over your business data.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 11. HIGH-IMPACT CTA BANNER (LineaDS Call to Action) ===== -->
+    <section class="section cta-banner-section">
+      <div class="container">
+        <div class="cta-banner-box reveal">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-content">
+            <span class="cta-mini-tag">Ready to Grow?</span>
+            <h2 class="cta-title">We make growing your business <br><span class="editorial-italic">simple and predictable.</span></h2>
+            <p class="cta-sub">
+              Book a private 20-minute consultation with our team to discuss your goals and map out a clear growth strategy.
+            </p>
+            <div class="cta-buttons">
+              <a href="#contact" class="btn-garnet">
+                <span>Get Started</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+                </svg>
+              </a>
+              <a href="#services" class="btn-ghost-mono">Explore Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 12. CONTACT US SECTION ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-tag">
+            <span class="tag-dot"></span>
+            <span>Confidential Advisory &bull; Direct Consultation</span>
+          </div>
+          <h2 class="section-title">Contact <span class="editorial-italic">Igraph Media</span></h2>
+          <p class="section-subtitle">
+            Connect directly with our advisory team to discuss your business goals, reach more customers, and build lasting market leadership.
+          </p>
+        </div>
+
+        <div class="contact-grid-layout">
+          <!-- Information & Trust Panel -->
+          <div class="contact-panel reveal reveal-delay-1">
+            <div>
+              <h3 class="panel-heading">Get in Touch with Our Team</h3>
+              <p class="panel-text">
+                Speak directly with our team about how our websites, digital advertising, social media management, and PR strategies can help you grow your business and win more customers.
+              </p>
+
+              <!-- Advisory Card -->
+              <div class="hq-card">
+                <div class="hq-card-label">Client Advisory Services</div>
+                <div class="hq-card-city">
+                  <span class="hq-dot"></span>
+                  <span>Direct Client Consultation</span>
+                </div>
+                <div class="hq-card-sub">Dedicated Account Operations &bull; GMT+1 (WAT)</div>
+              </div>
+
+              <!-- Partnered & Scaled Brands Strip -->
+              <div class="contact-trusted-strip">
+                <div class="trusted-strip-label">Proven Across Premier Scaling Brands</div>
+                <div class="contact-brands-tags">
+                  <span class="contact-brand-tag">Cocu Atelier</span>
+                  <span class="contact-brand-tag">TFZ Cakes &amp; Academy</span>
+                  <span class="contact-brand-tag">90's Management</span>
+                  <span class="contact-brand-tag">Creator Linda</span>
+                  <span class="contact-brand-tag">Unifera</span>
+                  <span class="contact-brand-tag">Hexaves</span>
+                  <span class="contact-brand-tag">Gidavest</span>
+                  <span class="contact-brand-tag">Perfection Beauty Home</span>
+                  <span class="contact-brand-tag">DandyAyanfe</span>
+                  <span class="contact-brand-tag">Arie &amp; Arin</span>
+                  <span class="contact-brand-tag">Techregard</span>
+                </div>
+              </div>
+
+              <!-- Contact Methods -->
+              <div class="contact-methods">
+                <div class="method-item">
+                  <span class="method-label">Confidential Briefs</span>
+                  <a href="mailto:advisory@igraphmedia.com" class="method-val">advisory@igraphmedia.com</a>
+                </div>
+                <div class="method-item">
+                  <span class="method-label">Executive Inquiries</span>
+                  <a href="mailto:hello@igraphmedia.com" class="method-val">hello@igraphmedia.com</a>
+                </div>
+                <div class="method-item">
+                  <span class="method-label">Direct Phone Line</span>
+                  <a href="tel:+2348153253639" class="method-val mono">+234 (815) 325-3639</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-foot">
+              <img src="assets/logo-icon-white.png" alt="Igraph Mark" class="panel-mark">
+              <span>Igraph Media Inc. &bull; Enterprise Non-Disclosure Protocols</span>
+            </div>
+          </div>
+
+          <!-- Business Owner Brief Form -->
+          <div class="contact-form-card reveal reveal-delay-2">
+            <form id="contactForm" onsubmit="event.preventDefault(); showFormSuccess();">
+              <div class="field-group">
+                <label for="cName" class="field-label">Full Name &amp; Title</label>
+                <input type="text" id="cName" class="field-input" placeholder="e.g. Adebayo Adeleke, Managing Director" required>
+              </div>
+
+              <div class="field-group">
+                <label for="cCompany" class="field-label">Company / Brand Name</label>
+                <input type="text" id="cCompany" class="field-input" placeholder="e.g. Cocu Atelier, 90's Management, Unifera, TFZ Cakes" required>
+              </div>
+
+              <div class="field-group">
+                <label for="cEmail" class="field-label">Corporate Email</label>
+                <input type="email" id="cEmail" class="field-input" placeholder="name@company.com" required>
+              </div>
+
+              <div class="field-group">
+                <label for="cObjective" class="field-label">Primary Service Requirement</label>
+                <select id="cObjective" class="field-input field-select">
+                  <option value="web-dev">Web Design and Development</option>
+                  <option value="seo-geo">SEO &amp; GEO (Search &amp; Generative AI Optimization)</option>
+                  <option value="social-media">Social Media Management &amp; Omnichannel Content</option>
+                  <option value="advertising">Digital Advertising (Google, Meta, LinkedIn, TikTok)</option>
+                  <option value="pr">Public Relations &amp; Tier-1 Authority Stature</option>
+                  <option value="full-pod">Comprehensive Business Growth &amp; Transformation Pod</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="cMessage" class="field-label">Commercial Objective / Growth Bottleneck</label>
+                <textarea id="cMessage" class="field-input field-textarea" rows="4" placeholder="Briefly outline your revenue targets, current digital bottlenecks, or target milestones..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-garnet btn-submit" id="submitBtn">
+                <span>Get Started</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+                </svg>
+              </button>
+
+              <div id="formSuccessMessage" class="form-success-banner" style="display: none;">
+                Thank you. Your commercial brief has been received. An executive partner will review your requirements and reach out within 24 hours.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 13. GLOBAL FOOTER (Matching Reference Layout) ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Top Tag: IGRAPH MEDIA LTD -->
+      <div class="footer-top-row">
+        <div class="footer-company-tag">IGRAPH MEDIA LTD</div>
+      </div>
+
+      <!-- Main 3-Column Core Grid -->
+      <div class="footer-core-grid">
+        <!-- Column 1: COMPANY -->
+        <div class="footer-col-company">
+          <div class="footer-col-label">COMPANY</div>
+          <nav class="footer-company-nav" aria-label="Footer Company Links">
+            <a href="about.html" class="footer-nav-item">
+              <span class="footer-nav-arrow">&#x2197;</span>
+              <span>ABOUT US</span>
+            </a>
+            <a href="services.html" class="footer-nav-item">
+              <span class="footer-nav-arrow">&#x2197;</span>
+              <span>OUR SERVICES</span>
+            </a>
+            <a href="#why-choose-us" class="footer-nav-item">
+              <span class="footer-nav-arrow">&#x2197;</span>
+              <span>LEVERAGE</span>
+            </a>
+            <a href="contact.html" class="footer-nav-item">
+              <span class="footer-nav-arrow">&#x2197;</span>
+              <span>CONTACT US</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Column 2: REACH OUT TO US -->
+        <div class="footer-col-reach">
+          <div class="footer-col-label text-center">REACH OUT TO US</div>
+          <div class="footer-contact-cluster">
+            <a href="tel:+2348153253639" class="footer-big-phone" aria-label="Telephone: +234 815 325 3639">
+              (+234) 815 325 3639
+            </a>
+            <a href="mailto:advisory@igraphmedia.com" class="footer-big-email" aria-label="Email: advisory@igraphmedia.com">
+              advisory@igraphmedia.com
+            </a>
+          </div>
+          <div class="footer-connect-wrap">
+            <a href="contact.html" class="footer-connect-btn">
+              <span>Let's Connect</span>
+              <span class="btn-arrow">&#x2197;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 3: SOCIAL -->
+        <div class="footer-col-social">
+          <div class="footer-col-label text-right">SOCIAL</div>
+          <div class="footer-social-stack" aria-label="Social Channels">
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <!-- X / Twitter -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="X (formerly Twitter)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="TikTok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-.88-.07A6.34 6.34 0 0 0 3 15.67a6.34 6.34 0 0 0 9.29 5.56 6.31 6.31 0 0 0 3.38-5.56V8.6a8.27 8.27 0 0 0 4.79 1.52v-3.43a4.85 4.85 0 0 1-.87 0z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright Row -->
+      <div class="footer-bottom-row">
+        <div class="footer-copyright">
+          &copy; 2026 ALL RIGHTS RESERVED, IGRAPH MEDIA LTD
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== 14. CONVERSATIONAL SUPPORT AGENT (Powered by Gemini API) ===== -->
+  <!-- Floating Trigger Button -->
+  <button id="aiChatToggle" class="ai-chat-toggle" style="position: fixed; bottom: 28px; right: 28px; z-index: 99999;" aria-label="Open AI Customer Support Chat" aria-expanded="false">
+    <div class="ai-toggle-avatar">
+      <span class="ai-toggle-pulse" aria-hidden="true"></span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </div>
+    <span class="ai-toggle-label">Ask Advisory AI</span>
+    <span class="ai-toggle-badge">Gemini</span>
+  </button>
+
+  <!-- Chat Drawer Window -->
+  <aside id="aiChatDrawer" class="ai-chat-drawer" style="display: none; position: fixed; bottom: 88px; right: 28px; z-index: 99998;" role="dialog" aria-label="Igraph Media AI Advisory Concierge">
+    <!-- Header -->
+    <header class="ai-drawer-header">
+      <div class="ai-header-info">
+        <div class="ai-header-avatar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+          <span class="ai-header-dot" aria-hidden="true"></span>
+        </div>
+        <div class="ai-header-titles">
+          <div class="ai-header-title">Igraph Concierge</div>
+          <div class="ai-header-status" id="aiStatusBadge">
+            <span class="status-dot green"></span>
+            <span>Gemini 3.8 Flash (Live)</span>
+          </div>
+        </div>
+      </div>
+      <div class="ai-header-actions">
+        <button id="aiChatSettings" class="ai-action-btn" title="Configure Gemini API Key" aria-label="Settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+        <button id="aiChatReset" class="ai-action-btn" title="Reset conversation" aria-label="Reset chat">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+            <path d="M21 3v5h-5"></path>
+            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+            <path d="M8 16H3v5"></path>
+          </svg>
+        </button>
+        <button id="aiChatClose" class="ai-action-btn" title="Close drawer" aria-label="Close chat">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Collapsible Settings Panel -->
+    <div id="aiChatSettingsPanel" class="ai-settings-panel" style="display: none;">
+      <div class="ai-settings-label">
+        <span>Gemini API Key</span>
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Get Free Key ↗</a>
+      </div>
+      <div class="ai-key-input-row">
+        <input type="password" id="aiGeminiKeyInput" class="ai-key-input" placeholder="AIzaSy..." autocomplete="off">
+        <button type="button" id="aiSaveKeyBtn" class="ai-btn-save">Save</button>
+        <button type="button" id="aiClearKeyBtn" class="ai-btn-clear" title="Clear key">Clear</button>
+      </div>
+      <div class="ai-settings-tip">
+        Key is stored securely in your browser&apos;s localStorage. Unlocks direct conversational queries powered by Google&apos;s latest Gemini 3.8 Flash model.
+      </div>
+    </div>
+
+    <!-- Scrollable Messages Container -->
+    <div id="aiChatMessages" class="ai-chat-messages">
+      <!-- Welcome Card -->
+      <div class="ai-welcome-card ai-msg-welcome">
+        <div class="ai-welcome-badge">Autonomous Advisory Agent</div>
+        <div class="ai-welcome-title">Welcome to Igraph Media Advisory</div>
+        <div class="ai-welcome-desc">
+          I am your dedicated Growth Concierge powered by Google Gemini. I can qualify your brand for our growth pods, schedule a private 20-minute consultation directly into our calendar, or instantly connect you with an executive human advisor.
+        </div>
+        <div class="ai-prompt-chips-wrap">
+          <button type="button" class="ai-prompt-chip" data-prompt="Book a 20-minute private consultation">📅 Book Consultation</button>
+          <button type="button" class="ai-prompt-chip" data-prompt="I would like to speak with a human agent">👤 Talk to Human Agent</button>
+          <button type="button" class="ai-prompt-chip" data-prompt="Qualify my business for Igraph Media advisory">🎯 Qualify My Brand</button>
+          <button type="button" class="ai-prompt-chip" data-prompt="What services does Igraph Media provide?">💼 Explore Services</button>
+          <button type="button" class="ai-prompt-chip" data-prompt="Tell me about the Cocu Atelier case study (21k followers, 5M+ traffic)">🏆 Cocu Atelier Results</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Input Bar -->
+    <footer class="ai-drawer-footer">
+      <form id="aiChatForm" class="ai-input-form" onsubmit="event.preventDefault();">
+        <input type="text" id="aiChatInput" class="ai-chat-input" placeholder="Ask about services, results, or strategy..." autocomplete="off">
+        <button type="submit" id="aiChatSendBtn" class="ai-send-btn" aria-label="Send message">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+      <div class="ai-footer-disclaimer">
+        Confidential Advisory &bull; Powered by Google Gemini API
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="script.js?v=2.3"></script>
+  <script src="agent.js?v=2.3"></script>
+</body>
+</html>
