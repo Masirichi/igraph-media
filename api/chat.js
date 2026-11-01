@@ -1,220 +1,285 @@
 /**
- * Vercel Serverless Function: /api/chat
- * Secure AI Concierge endpoint powered by Google Gemini API.
- * Automatically saves qualified leads, booked appointments, and handovers to Supabase.
+ * IGRAPH CONCIERGE — SECURE SERVERLESS CHAT ENDPOINT
+ * POST /api/chat
+ * 
+ * Production security features:
+ * - Method restriction: POST only (405 on others)
+ * - Origin / Referer validation against configurable allowlist
+ * - In-memory IP rate limiter (15 req/min, with Upstash/Vercel KV note)
+ * - Strict input sanitization (strip control chars, 1,000 char cap, max 20 turns)
+ * - Immutable server-side system prompt (client cannot override)
+ * - 20s request timeout with graceful fallback (zero raw stack traces leaked)
+ * - Cache-Control: no-store
  */
 
-const { insertLead, insertAppointment, insertHandover, logChatTurn } = require('../lib/supabase');
+const { buildSystemPrompt } = require('./_prompt');
 
-const SYSTEM_INSTRUCTION = `You are the Senior Advisory Concierge for IGRAPH MEDIA (https://igraphmedia.com), an elite Independent Media & Brand Advisory.
+// In-memory rate limiting map: ip -> { count, resetAt }
+// NOTE FOR MULTI-REGION PRODUCTION:
+// In a serverless environment with multiple concurrent edge instances,
+// in-memory rate limiting operates per-instance. For strict global rate limiting,
+// upgrade to Upstash Redis (@upstash/ratelimit) or Vercel KV.
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 15;
 
-YOUR CORE PURPOSE:
-We believe that every ambitious startup and growing business possesses a story powerful enough to challenge industry leaders. You do not just need promotion—you need to own your narrative. Our core purpose is to give growing brands the voice, authority, and presence required to be heard clearly in a noisy marketplace.
-
-GROWTH ARCHITECTURE & STRATEGY:
-By combining data-backed public relations strategies with precise, targeted digital advertising, we turn authentic brand stories into measurable commercial success. We focus on clear facts, persuasive positioning, and consistent execution to help you earn customer trust, outmaneuver competitors, and build lasting market leadership.
-
-OUR 8 CORE SERVICES:
-1. Press Release Distribution: Craft compelling narratives and ensure they reach the right audience with professional press release distribution in top-tier publications.
-2. Social Media Management: Build a strong online presence and foster meaningful connections with strategic campaigns, profile management, and engaging content.
-3. Personal Branding & Profiling: Establish yourself as an industry authority with cohesive personal branding, media kits, and optimized social profiles.
-4. Media Planning & Buying: Develop strategic, data-driven media plans to maximize your advertising budget and reach the right customers at the right time.
-5. Search Engine Optimization (SEO): Improve online visibility and attract the right customers with comprehensive audits, customized strategies, and best practices.
-6. Brand Promotion: Elevate brand presence and reputation through integrated brand promotion, content strategy, and digital advertising.
-7. Content Strategy: Captivate your audience with compelling, SEO-optimized articles, videos, and visuals tailored to resonate with your target market.
-8. Digital Advertising: Advanced digital advertising solutions leveraging data-driven targeting, creative optimization, and performance tracking for stellar ROI.
-
-VERIFIED CLIENT RESULTS & CASE STUDIES:
-- Cocu Atelier: Grew luxury fashion presence to 21k within 3 months organically, amassing over 5 million organic traffic impressions (Creative Director: Katrin K.).
-- TFZ Cakes and Academy: Generated high-intent qualified leads for their culinary academy training programs (Founder: Tobarin .O).
-- 90's Management: Revamped complete social media strategy and tripled engagements on Instagram across every campaign.
-- Creator Linda: Designed tailored content strategies delivering commercial business success and audience loyalty.
-- Additional Scaling Brands: Unifera, Hexaves, Gidavest, Perfection Beauty Home, DandyAyanfe, Arie & Arin, Techregard, Moderncrux, Cityfidelity.
-
-OPERATIONAL ASSURANCES:
-- Mutual Non-Disclosure Agreements (NDAs) signed before work begins.
-- Dedicated Partner Collaboration & Transparent Performance Tracking.
-- Consultation: Complimentary 20-minute private growth consultation with an executive partner.
-
-DIRECT CONTACT CHANNELS:
-- Direct Line: +234 (815) 325-3639
-- Advisory Briefs: advisory@igraphmedia.com
-- General Inquiries: hello@igraphmedia.com
-- Active Hours: Monday – Friday, 9:00 AM – 6:00 PM WAT
-
-YOUR AGENTIC CAPABILITIES:
-1. When a visitor shares their company name, email, or budget interest, proactively call "qualify_lead".
-2. When a visitor expresses interest in scheduling a session or call, call "book_appointment".
-3. When a visitor asks to speak with a human or has a critical inquiry, call "handover_to_human".
-Maintain a polished, authoritative, concise, and helpful tone at all times.`;
-
-const AGENT_TOOLS = [
-  {
-    name: "qualify_lead",
-    description: "Qualify a commercial prospect or business lead for Igraph Media advisory services.",
-    parameters: {
-      type: "OBJECT",
-      properties: {
-        client_name: { type: "STRING", description: "Client full name or title" },
-        company_name: { type: "STRING", description: "Company or brand name" },
-        service_interest: { type: "STRING", description: "Primary service needed from the 8 core services" },
-        growth_goal: { type: "STRING", description: "Main revenue bottleneck or commercial goal" },
-        monthly_budget: { type: "STRING", description: "Estimated growth budget or monthly revenue stage" },
-        email: { type: "STRING", description: "Corporate or contact email" },
-        phone: { type: "STRING", description: "Direct telephone or WhatsApp number" }
-      },
-      required: ["company_name", "service_interest"]
-    }
-  },
-  {
-    name: "book_appointment",
-    description: "Book a private 20-minute growth consultation with an Igraph Media executive partner.",
-    parameters: {
-      type: "OBJECT",
-      properties: {
-        client_name: { type: "STRING", description: "Full name of the attendee" },
-        company_name: { type: "STRING", description: "Company or brand represented" },
-        email: { type: "STRING", description: "Corporate email for calendar invite" },
-        phone: { type: "STRING", description: "Direct phone or WhatsApp" },
-        preferred_date: { type: "STRING", description: "Preferred date (YYYY-MM-DD)" },
-        preferred_time: { type: "STRING", description: "Preferred time window in WAT" },
-        growth_focus: { type: "STRING", description: "Primary growth bottleneck or advisory topic" }
-      },
-      required: ["client_name", "email"]
-    }
-  },
-  {
-    name: "handover_to_human",
-    description: "Escalate and handover the conversation to an actual human advisor or senior partner at Igraph Media.",
-    parameters: {
-      type: "OBJECT",
-      properties: {
-        reason: { type: "STRING", description: "Reason for human escalation" },
-        client_name: { type: "STRING", description: "Client name if known" },
-        summary: { type: "STRING", description: "Brief executive summary of visitor needs" },
-        urgency: { type: "STRING", enum: ["immediate", "high", "normal"], description: "Urgency level" }
-      },
-      required: ["reason"]
+// Clean up stale IP records periodically
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimitMap.entries()) {
+    if (now > entry.resetAt) {
+      rateLimitMap.delete(ip);
     }
   }
-];
+}, 120 * 1000).unref();
+
+function checkRateLimit(ip) {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip) || { count: 0, resetAt: now + RATE_LIMIT_WINDOW_MS };
+
+  if (now > entry.resetAt) {
+    entry.count = 1;
+    entry.resetAt = now + RATE_LIMIT_WINDOW_MS;
+    rateLimitMap.set(ip, entry);
+    return { allowed: true };
+  }
+
+  if (entry.count >= MAX_REQUESTS_PER_WINDOW) {
+    return {
+      allowed: false,
+      retryAfterSeconds: Math.ceil((entry.resetAt - now) / 1000)
+    };
+  }
+
+  entry.count += 1;
+  rateLimitMap.set(ip, entry);
+  return { allowed: true };
+}
+
+function sanitizeText(str) {
+  if (typeof str !== 'string') return '';
+  // Strip non-printable ASCII control characters except standard whitespace (\r, \n, \t)
+  return str.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '').trim();
+}
+
+function isOriginAllowed(req) {
+  const defaultOrigins = [
+    'https://igraph-media.vercel.app',
+    'https://igraphmedia.com',
+    'https://www.igraphmedia.com',
+    'http://localhost:8080',
+    'http://localhost:3000',
+    'http://127.0.0.1:8080',
+    'http://127.0.0.1:3000'
+  ];
+
+  const envOrigins = (process.env.ALLOWED_ORIGINS || '')
+    .split(',')
+    .map(o => o.trim())
+    .filter(Boolean);
+
+  const allowed = new Set([...defaultOrigins, ...envOrigins]);
+  const origin = req.headers['origin'];
+  const referer = req.headers['referer'];
+
+  // If both origin and referer are missing (e.g. server-to-server or direct curl in development),
+  // allow only in non-production environments
+  if (!origin && !referer) {
+    return process.env.NODE_ENV !== 'production';
+  }
+
+  if (origin && allowed.has(origin)) {
+    return true;
+  }
+
+  if (referer) {
+    try {
+      const refUrl = new URL(referer);
+      if (allowed.has(refUrl.origin)) {
+        return true;
+      }
+    } catch {
+      return false;
+    }
+  }
+
+  return false;
+}
 
 module.exports = async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
+  // 1. Enforce POST only
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed. Use POST.' });
-  }
-
-  const { message, history = [], session_id = 'session_' + Date.now(), api_key: clientKey } = req.body || {};
-
-  if (!message || typeof message !== 'string') {
-    return res.status(400).json({ error: 'Message text is required.' });
-  }
-
-  const apiKey = process.env.GEMINI_API_KEY || clientKey;
-  if (!apiKey) {
-    return res.status(200).json({
-      error: 'KEY_MISSING',
-      reply: null,
-      message: 'Server GEMINI_API_KEY is not configured yet. Client key required.'
+    res.setHeader('Allow', 'POST');
+    res.setHeader('Cache-Control', 'no-store');
+    return res.status(405).json({
+      error: 'Method Not Allowed',
+      message: 'The chat service only accepts POST requests.'
     });
   }
+
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Cache-Control', 'no-store');
+
+  // 2. Origin / Referer verification
+  if (!isOriginAllowed(req)) {
+    return res.status(403).json({
+      error: 'Forbidden',
+      message: 'Request origin is not authorized.'
+    });
+  }
+
+  // 3. Client IP extraction and rate limiting
+  const forwarded = req.headers['x-forwarded-for'];
+  const clientIp = forwarded ? forwarded.split(',')[0].trim() : req.socket?.remoteAddress || '127.0.0.1';
+
+  const rateCheck = checkRateLimit(clientIp);
+  if (!rateCheck.allowed) {
+    res.setHeader('Retry-After', String(rateCheck.retryAfterSeconds));
+    return res.status(429).json({
+      error: 'Too Many Requests',
+      message: 'You have sent messages too quickly. Please wait a moment before sending another message.',
+      retryAfter: rateCheck.retryAfterSeconds
+    });
+  }
+
+  // 4. Validate Environment Variables
+  const apiKey = process.env.GEMINI_API_KEY;
+  const modelName = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+
+  if (!apiKey) {
+    console.error('[Igraph Concierge] Configuration error: GEMINI_API_KEY is not defined in environment variables.');
+    return res.status(500).json({
+      error: 'Configuration Error',
+      message: 'The concierge assistant is temporarily unavailable. Please reach our team directly at advisory@igraphmedia.com or via WhatsApp.'
+    });
+  }
+
+  // 5. Validate & Sanitize Input
+  const body = req.body || {};
+  let rawMessages = body.messages;
+
+  // Backwards compatibility for single message payloads
+  if (!rawMessages && typeof body.message === 'string') {
+    rawMessages = [{ role: 'user', content: body.message }];
+  }
+
+  if (!Array.isArray(rawMessages) || rawMessages.length === 0) {
+    return res.status(400).json({
+      error: 'Bad Request',
+      message: 'Payload must contain a non-empty "messages" array.'
+    });
+  }
+
+  // Enforce max 20 messages (drop oldest if exceeded)
+  const trimmedMessages = rawMessages.slice(-20);
+  const validatedMessages = [];
+
+  for (const msg of trimmedMessages) {
+    if (!msg || typeof msg !== 'object') {
+      return res.status(400).json({
+        error: 'Bad Request',
+        message: 'Each message must be an object with "role" and "content".'
+      });
+    }
+
+    const role = msg.role === 'assistant' || msg.role === 'model' ? 'model' : 'user';
+    let content = sanitizeText(msg.content);
+
+    if (!content) continue;
+
+    // Strict 1,000 character limit per user message
+    if (role === 'user' && content.length > 1000) {
+      content = content.slice(0, 1000);
+    }
+
+    validatedMessages.push({ role, content });
+  }
+
+  if (validatedMessages.length === 0) {
+    return res.status(400).json({
+      error: 'Bad Request',
+      message: 'No valid message content provided.'
+    });
+  }
+
+  // 6. Format Payload for Google Gemini REST API
+  // Map conversation turns to Gemini's contents structure
+  const contents = validatedMessages.map(m => ({
+    role: m.role,
+    parts: [{ text: m.content }]
+  }));
+
+  const systemInstructionText = buildSystemPrompt();
+
+  const geminiPayload = {
+    system_instruction: {
+      parts: [{ text: systemInstructionText }]
+    },
+    contents: contents,
+    generationConfig: {
+      temperature: 0.65,
+      topP: 0.9,
+      maxOutputTokens: 600
+    }
+  };
+
+  // 7. Call Gemini API with 20-Second Timeout
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 20000);
+
+  const endpointUrl = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(modelName)}:generateContent?key=${apiKey}`;
 
   try {
-    // Format contents payload for Google Gemini generateContent endpoint
-    const contents = [];
-
-    // Prior conversation turns
-    for (const item of history.slice(-8)) {
-      if (item.sender === 'user' && item.text) {
-        contents.push({ role: 'user', parts: [{ text: item.text }] });
-      } else if (item.sender === 'bot' && item.text) {
-        contents.push({ role: 'model', parts: [{ text: item.text }] });
-      }
-    }
-
-    // Current turn
-    contents.push({ role: 'user', parts: [{ text: message }] });
-
-    const geminiPayload = {
-      systemInstruction: {
-        parts: [{ text: SYSTEM_INSTRUCTION }]
-      },
-      contents,
-      tools: [{ functionDeclarations: AGENT_TOOLS }],
-      generationConfig: {
-        temperature: 0.6,
-        maxOutputTokens: 600
-      }
-    };
-
-    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${apiKey}`;
-
-    const geminiRes = await fetch(apiUrl, {
+    const upstreamResponse = await fetch(endpointUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(geminiPayload)
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(geminiPayload),
+      signal: controller.signal
     });
 
-    if (!geminiRes.ok) {
-      const errBody = await geminiRes.text();
-      console.error('[API Chat] Gemini API error:', geminiRes.status, errBody);
-      return res.status(500).json({ error: 'Upstream AI service error', details: errBody });
+    clearTimeout(timeoutId);
+
+    if (!upstreamResponse.ok) {
+      const errorText = await upstreamResponse.text().catch(() => '');
+      console.error(`[Igraph Concierge] Upstream Gemini error (${upstreamResponse.status}):`, errorText.slice(0, 500));
+      return res.status(502).json({
+        error: 'Upstream Error',
+        message: 'The assistant had trouble generating a reply. Please try again or reach our team via WhatsApp at +234 815 325 3639.'
+      });
     }
 
-    const geminiData = await geminiRes.json();
-    const candidate = geminiData.candidates?.[0]?.content?.parts || [];
+    const data = await upstreamResponse.json();
+    const candidate = data.candidates?.[0];
+    const replyText = candidate?.content?.parts?.[0]?.text;
 
-    let replyText = '';
-    let functionCall = null;
-
-    for (const part of candidate) {
-      if (part.text) {
-        replyText += part.text;
-      }
-      if (part.functionCall) {
-        functionCall = {
-          name: part.functionCall.name,
-          args: part.functionCall.args || {}
-        };
-      }
+    if (!replyText) {
+      console.warn('[Igraph Concierge] Empty reply from Gemini candidate');
+      return res.status(200).json({
+        reply: "I am here to help you explore Igraph Media's services, request a quote, or schedule a free consultation. How can I assist your business today?"
+      });
     }
-
-    // Agentic side-effects: Save directly to Supabase in the background!
-    if (functionCall) {
-      if (functionCall.name === 'qualify_lead') {
-        await insertLead({ ...functionCall.args, source: 'ai_concierge' });
-      } else if (functionCall.name === 'book_appointment') {
-        await insertAppointment(functionCall.args);
-      } else if (functionCall.name === 'handover_to_human') {
-        await insertHandover(functionCall.args);
-      }
-    }
-
-    // Log chat interaction turn
-    await logChatTurn({
-      session_id,
-      user_message: message,
-      bot_reply: replyText,
-      function_called: functionCall ? functionCall.name : null,
-      function_arguments: functionCall ? functionCall.args : null
-    });
 
     return res.status(200).json({
-      reply: replyText,
-      function_call: functionCall,
-      interaction_id: geminiData.usageMetadata ? `gemini_${Date.now()}` : null
+      reply: replyText.trim()
     });
 
   } catch (err) {
-    console.error('[API Chat] Execution error:', err);
-    return res.status(500).json({ error: 'Server error processing chat message.', details: err.message });
+    clearTimeout(timeoutId);
+
+    if (err.name === 'AbortError') {
+      console.error('[Igraph Concierge] Upstream request timed out after 20s');
+      return res.status(504).json({
+        error: 'Gateway Timeout',
+        message: 'The assistant took too long to reply. Please try again or message our team directly on WhatsApp.'
+      });
+    }
+
+    console.error('[Igraph Concierge] Network/execution error:', err.message);
+    return res.status(500).json({
+      error: 'Internal Server Error',
+      message: 'We experienced an unexpected error. Please try again or contact us directly at advisory@igraphmedia.com.'
+    });
   }
 };

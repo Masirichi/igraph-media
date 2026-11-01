@@ -22,33 +22,7 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css?v=2.5">
-  <link rel="stylesheet" href="agent.css?v=2.5">
-
-  <style>
-    /* Critical Chatbot Layout Protection */
-    .ai-chat-toggle {
-      position: fixed !important;
-      bottom: 28px !important;
-      right: 28px !important;
-      z-index: 99999 !important;
-    }
-    .ai-chat-drawer {
-      display: none;
-      position: fixed !important;
-      bottom: 88px !important;
-      right: 28px !important;
-      z-index: 99998 !important;
-    }
-    .ai-chat-drawer.active {
-      display: flex !important;
-    }
-    .ai-settings-panel {
-      display: none;
-    }
-    .ai-settings-panel.active {
-      display: block !important;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/chatbot.css">
 </head>
 <body>
 
@@ -576,113 +550,11 @@
     </div>
   </footer>
 
-  <!-- ===== 8. CONVERSATIONAL SUPPORT AGENT (Powered by Gemini API) ===== -->
-  <!-- Floating Trigger Button -->
-  <button id="aiChatToggle" class="ai-chat-toggle" style="position: fixed; bottom: 28px; right: 28px; z-index: 99999;" aria-label="Open AI Customer Support Chat" aria-expanded="false">
-    <div class="ai-toggle-avatar">
-      <span class="ai-toggle-pulse" aria-hidden="true"></span>
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-      </svg>
-    </div>
-    <span class="ai-toggle-label">Ask Advisory AI</span>
-    <span class="ai-toggle-badge">Gemini</span>
-  </button>
-
-  <!-- Chat Drawer Window -->
-  <aside id="aiChatDrawer" class="ai-chat-drawer" style="display: none; position: fixed; bottom: 88px; right: 28px; z-index: 99998;" role="dialog" aria-label="Igraph Media AI Advisory Concierge">
-    <header class="ai-drawer-header">
-      <div class="ai-header-info">
-        <div class="ai-header-avatar">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"></path>
-            <path d="m9 12 2 2 4-4"></path>
-          </svg>
-          <span class="ai-header-dot" aria-hidden="true"></span>
-        </div>
-        <div class="ai-header-titles">
-          <div class="ai-header-title">Igraph Concierge</div>
-          <div class="ai-header-status" id="aiStatusBadge">
-            <span class="status-dot green"></span>
-            <span>Gemini 3.8 Flash (Live)</span>
-          </div>
-        </div>
-      </div>
-      <div class="ai-header-actions">
-        <button id="aiChatSettings" class="ai-action-btn" title="Configure Gemini API Key" aria-label="Settings">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-          </svg>
-        </button>
-        <button id="aiChatReset" class="ai-action-btn" title="Reset conversation" aria-label="Reset chat">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-            <path d="M21 3v5h-5"></path>
-            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-            <path d="M8 16H3v5"></path>
-          </svg>
-        </button>
-        <button id="aiChatClose" class="ai-action-btn" title="Close drawer" aria-label="Close chat">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </header>
-
-    <div id="aiChatSettingsPanel" class="ai-settings-panel" style="display: none;">
-      <div class="ai-settings-label">
-        <span>Gemini API Key</span>
-        <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Get Free Key ↗</a>
-      </div>
-      <div class="ai-key-input-row">
-        <input type="password" id="aiGeminiKeyInput" class="ai-key-input" placeholder="AIzaSy..." autocomplete="off">
-        <button type="button" id="aiSaveKeyBtn" class="ai-btn-save">Save</button>
-        <button type="button" id="aiClearKeyBtn" class="ai-btn-clear" title="Clear key">Clear</button>
-      </div>
-      <div class="ai-settings-tip">
-        Key is stored securely in your browser's localStorage. Unlocks direct conversational queries powered by Google's latest Gemini 3.8 Flash model.
-      </div>
-    </div>
-
-    <div id="aiChatMessages" class="ai-chat-messages">
-      <div class="ai-welcome-card ai-msg-welcome">
-        <div class="ai-welcome-badge">Autonomous Advisory Agent</div>
-        <div class="ai-welcome-title">Welcome to Igraph Media Advisory</div>
-        <div class="ai-welcome-desc">
-          I am your dedicated Growth Concierge powered by Google Gemini. Reach out to schedule a private 20-minute consultation, qualify your brand, or speak with an executive partner.
-        </div>
-        <div class="ai-prompt-chips-wrap">
-          <button type="button" class="ai-prompt-chip" data-prompt="Book a 20-minute private consultation">📅 Book Consultation</button>
-          <button type="button" class="ai-prompt-chip" data-prompt="I would like to speak with a human agent">👤 Talk to Human Agent</button>
-          <button type="button" class="ai-prompt-chip" data-prompt="How quickly do you respond to project briefs?">⏱️ Response Timeline</button>
-          <button type="button" class="ai-prompt-chip" data-prompt="What services does Igraph Media provide?">💼 Explore Services</button>
-          <button type="button" class="ai-prompt-chip" data-prompt="Direct contact phone number and WhatsApp">📞 Contact Details</button>
-        </div>
-      </div>
-    </div>
-
-    <footer class="ai-drawer-footer">
-      <form id="aiChatForm" class="ai-input-form" onsubmit="event.preventDefault();">
-        <input type="text" id="aiChatInput" class="ai-chat-input" placeholder="Ask about services, booking a call, or contact..." autocomplete="off">
-        <button type="submit" id="aiChatSendBtn" class="ai-send-btn" aria-label="Send message">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
-        </button>
-      </form>
-      <div class="ai-footer-disclaimer">
-        Confidential Advisory &bull; Powered by Google Gemini API
-      </div>
-    </footer>
-  </aside>
+  
 
   <!-- Scripts -->
   <script src="script.js?v=2.5"></script>
-  <script src="agent.js?v=2.5"></script>
+  <script src="assets/chatbot.js" defer></script>
   <script>
     function showFormSuccess() {
       const banner = document.getElementById('formSuccessMsg');

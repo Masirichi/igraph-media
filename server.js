@@ -20,6 +20,7 @@ const PUBLIC_DIR = __dirname;
 
 // Import serverless API handlers
 const leadsHandler = require('./api/leads');
+const leadHandler = require('./api/lead');
 const appointmentsHandler = require('./api/appointments');
 const handoverHandler = require('./api/handover');
 const chatHandler = require('./api/chat');
@@ -78,6 +79,9 @@ const server = http.createServer(async (req, res) => {
 
     if (pathname === '/api/leads') {
       return leadsHandler(req, res);
+    }
+    if (pathname === '/api/lead') {
+      return leadHandler(req, res);
     }
     if (pathname === '/api/appointments') {
       return appointmentsHandler(req, res);
