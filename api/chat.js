@@ -223,9 +223,9 @@ module.exports = async function handler(req, res) {
     }
   };
 
-  // 7. Call Gemini API with 20-Second Timeout
+  // 7. Call Gemini API with 25-Second Timeout
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 20000);
+  const timeoutId = setTimeout(() => controller.abort(), 25000);
 
   const endpointUrl = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(modelName)}:generateContent?key=${apiKey}`;
 
