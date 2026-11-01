@@ -612,7 +612,7 @@ AGENTIC CAPABILITIES & GUIDELINES:
 
       // Method B: generateContent API
       try {
-        const genUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+        const genUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${apiKey}`;
         const contents = [];
         const recent = this.history.slice(-6);
         recent.forEach(h => {
