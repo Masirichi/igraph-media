@@ -9,7 +9,7 @@ const FACTS = {
   timezone: "West Africa Time (WAT / GMT+1)",
   officialPhone: "+234 815 325 3639",
   officialWhatsApp: "+234 815 325 3639",
-  officialEmail: "advisory@igraphmedia.com",
+  officialEmail: "hello@igraphmedia.com.ng",
   consultationDuration: "20 minutes (complimentary)",
   coreServices: [
     "Web Design & Development (custom, high-conversion responsive web platforms)",
@@ -48,7 +48,7 @@ STRICT HONESTY GUARDRAILS:
 - NEVER invent prices, rates, specific timelines, guarantees, client names, statistics, or case study figures.
 - If asked about pricing or rates, state that every engagement is tailored to scope, budget, and commercial goals, and offer to start a quote request or schedule the free 20-minute consultation.
 - Only reference verified facts from the official configuration. Do not cite any client numbers, star ratings, or past figures unless confirmed.
-- If unsure of an answer, honestly say you do not know and offer to connect the visitor with a senior team member via WhatsApp (+234 815 325 3639) or email (advisory@igraphmedia.com).
+- If unsure of an answer, honestly say you do not know and offer to connect the visitor with a senior team member via WhatsApp (+234 815 325 3639) or email (hello@igraphmedia.com.ng).
 - Never provide legal, tax, financial, or medical advice.
 
 SECURITY & INTEGRITY:

@@ -23,6 +23,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css?v=2.3">
   <link rel="stylesheet" href="assets/chatbot.css">
+  <link rel="stylesheet" href="assets/contact.css">
 </head>
 <body>
 
@@ -38,7 +39,7 @@
         <div class="address-meta">
           <a href="tel:+2348153253639" class="address-link">+234 (815) 325-3639</a>
           <span class="meta-sep">&bull;</span>
-          <a href="mailto:advisory@igraphmedia.com" class="address-link">advisory@igraphmedia.com</a>
+          <a href="mailto:hello@igraphmedia.com.ng" class="address-link">hello@igraphmedia.com.ng</a>
         </div>
       </div>
     </div>
@@ -81,7 +82,7 @@
       <div class="mobile-menu-footer">
         <div class="mobile-address">Independent Brand Advisory</div>
         <a href="tel:+2348153253639" class="mobile-phone" style="display:block; margin-top:6px; color:#fff;">+234 (815) 325-3639</a>
-        <a href="mailto:advisory@igraphmedia.com">advisory@igraphmedia.com</a>
+        <a href="mailto:hello@igraphmedia.com.ng">hello@igraphmedia.com.ng</a>
       </div>
     </div>
   </div>
@@ -1091,127 +1092,117 @@
       </div>
     </section>
 
-    <!-- ===== 12. CONTACT US SECTION ===== -->
-    <section class="section" id="contact">
+        <!-- ===== CONTACT SECTION ===== -->
+    <section class="section contact-section" id="contact">
       <div class="container">
-        <div class="section-header reveal">
-          <div class="section-tag">
-            <span class="tag-dot"></span>
-            <span>Confidential Advisory &bull; Direct Consultation</span>
-          </div>
-          <h2 class="section-title">Contact <span class="editorial-italic">Igraph Media</span></h2>
-          <p class="section-subtitle">
-            Connect directly with our advisory team to discuss your business goals, reach more customers, and build lasting market leadership.
-          </p>
-        </div>
-
-        <div class="contact-grid-layout">
-          <!-- Information & Trust Panel -->
-          <div class="contact-panel reveal reveal-delay-1">
+        <div class="contact-grid">
+          
+          <!-- Left Column: Info Panel -->
+          <div class="contact-info-panel">
             <div>
-              <h3 class="panel-heading">Get in Touch with Our Team</h3>
-              <p class="panel-text">
-                Speak directly with our team about how our websites, digital advertising, social media management, and PR strategies can help you grow your business and win more customers.
+              <h2 class="contact-info-heading">Let's talk about growing your business</h2>
+              <p class="contact-info-body">
+                Tell us what you're aiming for. We'll reply with clear next steps: no jargon, no pressure.
               </p>
 
-              <!-- Advisory Card -->
-              <div class="hq-card">
-                <div class="hq-card-label">Client Advisory Services</div>
-                <div class="hq-card-city">
-                  <span class="hq-dot"></span>
-                  <span>Direct Client Consultation</span>
-                </div>
-                <div class="hq-card-sub">Dedicated Account Operations &bull; GMT+1 (WAT)</div>
+              <!-- Three Check-List Lines (Plain list, NOT boxed) -->
+              <ul class="contact-checklist" id="contactChecklist">
+                <li class="checklist-item">
+                  <span class="checklist-icon" aria-hidden="true">&#x2713;</span>
+                  <span>Free 20-minute consultation</span>
+                </li>
+                <li class="checklist-item">
+                  <span class="checklist-icon" aria-hidden="true">&#x2713;</span>
+                  <span id="contactResponseTime">Reply within 24 hours</span>
+                </li>
+              </ul>
+
+              <!-- Three Tappable Contact Links (Real <a>, Min 48px tall) -->
+              <div class="contact-action-links">
+                <a href="https://wa.me/2348153253639?text=Hi%20Igraph%20Media%2C%20I%27d%20like%20to%20talk%20about%20my%20business" class="contact-link-btn contact-link-whatsapp" target="_blank" rel="noopener noreferrer">
+                  <svg class="contact-link-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                    <path d="M12.031 2C6.505 2 2.012 6.49 2.012 12.013c0 1.907.537 3.734 1.554 5.312L2 22l4.825-1.53c1.517.928 3.262 1.42 5.206 1.42 5.525 0 10.02-4.49 10.02-10.013C22.051 6.49 17.556 2 12.031 2zm5.836 14.18c-.244.688-1.421 1.319-1.956 1.398-.518.077-1.19.109-1.93-.131-.448-.145-1.026-.339-1.782-.667-3.17-1.373-5.234-4.577-5.393-4.789-.158-.211-1.293-1.722-1.293-3.284 0-1.562.818-2.33 1.109-2.648.291-.317.635-.396.846-.396.211 0 .423.002.607.012.196.01.458-.074.717.549.265.635.9 2.195.979 2.354.079.159.132.344.026.555-.106.211-.159.344-.317.529-.159.185-.333.413-.476.555-.159.159-.325.332-.14.65.185.317.822 1.353 1.764 2.193 1.213 1.08 2.235 1.414 2.553 1.573.317.159.502.132.688-.079.185-.212.793-.926 1.004-1.243.212-.317.423-.264.714-.159.291.106 1.85.872 2.167 1.031.317.159.529.238.608.37.079.132.079.767-.165 1.455z"/>
+                  </svg>
+                  <span>Chat on WhatsApp</span>
+                </a>
+                <a href="tel:+2348153253639" class="contact-link-btn" id="contactCallBtn">
+                  <svg class="contact-link-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                  <span>Call +234 (815) 325-3639</span>
+                </a>
+                <a href="mailto:hello@igraphmedia.com.ng" class="contact-link-btn" id="contactEmailBtn">
+                  <svg class="contact-link-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <span>hello@igraphmedia.com.ng</span>
+                </a>
               </div>
 
-              <!-- Partnered & Scaled Brands Strip -->
-              <div class="contact-trusted-strip">
-                <div class="trusted-strip-label">Proven Across Premier Scaling Brands</div>
-                <div class="contact-brands-tags">
-                  <span class="contact-brand-tag">Cocu Atelier</span>
-                  <span class="contact-brand-tag">TFZ Cakes &amp; Academy</span>
-                  <span class="contact-brand-tag">90's Management</span>
-                  <span class="contact-brand-tag">Creator Linda</span>
-                  <span class="contact-brand-tag">Unifera</span>
-                  <span class="contact-brand-tag">Hexaves</span>
-                  <span class="contact-brand-tag">Gidavest</span>
-                  <span class="contact-brand-tag">Perfection Beauty Home</span>
-                  <span class="contact-brand-tag">DandyAyanfe</span>
-                  <span class="contact-brand-tag">Arie &amp; Arin</span>
-                  <span class="contact-brand-tag">Techregard</span>
-                </div>
-              </div>
-
-              <!-- Contact Methods -->
-              <div class="contact-methods">
-                <div class="method-item">
-                  <span class="method-label">Confidential Briefs</span>
-                  <a href="mailto:advisory@igraphmedia.com" class="method-val">advisory@igraphmedia.com</a>
-                </div>
-                <div class="method-item">
-                  <span class="method-label">Executive Inquiries</span>
-                  <a href="mailto:hello@igraphmedia.com" class="method-val">hello@igraphmedia.com</a>
-                </div>
-                <div class="method-item">
-                  <span class="method-label">Direct Phone Line</span>
-                  <a href="tel:+2348153253639" class="method-val mono">+234 (815) 325-3639</a>
-                </div>
-              </div>
+              <!-- Optional Testimonial Slot (Rendered only if configured in CONTACT_CONFIG) -->
+              <div class="contact-testimonial-slot" id="contactTestimonialSlot" hidden></div>
             </div>
 
-            <div class="panel-foot">
-              <img src="assets/logo-icon-white.png" alt="Igraph Mark" class="panel-mark">
-              <span>Igraph Media Ltd. &bull; Enterprise Non-Disclosure Protocols</span>
+            <div class="contact-info-footnote">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <span>Your details stay private.</span>
             </div>
           </div>
 
-          <!-- Business Owner Brief Form -->
-          <div class="contact-form-card reveal reveal-delay-2">
-            <form id="contactForm" onsubmit="event.preventDefault(); showFormSuccess();">
-              <div class="field-group">
-                <label for="cName" class="field-label">Full Name &amp; Title</label>
-                <input type="text" id="cName" class="field-input" placeholder="e.g. Adebayo Adeleke, Managing Director" required>
+          <!-- Right Column: The Form Card -->
+          <div class="contact-form-card">
+            <form id="contact-form" action="/api/lead" method="post" novalidate>
+              <div class="field">
+                <label for="name">Your name <span class="req" aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required placeholder="e.g. Adebayo Adeleke">
+                <p class="error" id="name-error" role="alert" hidden></p>
               </div>
-
-              <div class="field-group">
-                <label for="cCompany" class="field-label">Company / Brand Name</label>
-                <input type="text" id="cCompany" class="field-input" placeholder="e.g. Cocu Atelier, 90's Management, Unifera, TFZ Cakes" required>
+              <div class="field">
+                <label for="brand">Business or brand name <span class="req" aria-hidden="true">*</span></label>
+                <input id="brand" name="brand" type="text" autocomplete="organization" required placeholder="e.g. Bright Bakes">
+                <p class="error" id="brand-error" role="alert" hidden></p>
               </div>
-
-              <div class="field-group">
-                <label for="cEmail" class="field-label">Corporate Email</label>
-                <input type="email" id="cEmail" class="field-input" placeholder="name@company.com" required>
+              <div class="field-row">
+                <div class="field">
+                  <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com">
+                  <p class="error" id="email-error" role="alert" hidden></p>
+                </div>
+                <div class="field">
+                  <label for="phone">WhatsApp number <span class="optional">(optional)</span></label>
+                  <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+234 …">
+                  <p class="error" id="phone-error" role="alert" hidden></p>
+                </div>
               </div>
-
-              <div class="field-group">
-                <label for="cObjective" class="field-label">Primary Service Requirement</label>
-                <select id="cObjective" class="field-input field-select">
-                  <option value="web-dev">Web Design and Development</option>
-                  <option value="seo-geo">SEO &amp; GEO (Search &amp; Generative AI Optimization)</option>
-                  <option value="social-media">Social Media Management &amp; Omnichannel Content</option>
-                  <option value="advertising">Digital Advertising (Google, Meta, LinkedIn, TikTok)</option>
-                  <option value="pr">Public Relations &amp; Tier-1 Authority Stature</option>
-                  <option value="full-pod">Comprehensive Business Growth &amp; Transformation Pod</option>
+              <div class="field">
+                <label for="service">What do you need help with? <span class="req" aria-hidden="true">*</span></label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="web-design">Web Design &amp; Development</option>
+                  <option value="seo-geo">SEO &amp; GEO (Search and AI Optimization)</option>
+                  <option value="social-media">Social Media Management</option>
+                  <option value="advertising">Digital Advertising</option>
+                  <option value="pr">Public Relations</option>
+                  <option value="not-sure">Not sure yet. Help me choose</option>
                 </select>
+                <p class="error" id="service-error" role="alert" hidden></p>
               </div>
-
-              <div class="field-group">
-                <label for="cMessage" class="field-label">Commercial Objective / Growth Bottleneck</label>
-                <textarea id="cMessage" class="field-input field-textarea" rows="4" placeholder="Briefly outline your revenue targets, current digital bottlenecks, or target milestones..." required></textarea>
+              <div class="field">
+                <label for="goal">Tell us about your goal <span class="optional">(optional)</span></label>
+                <textarea id="goal" name="goal" rows="4" maxlength="1500" placeholder="e.g. I want more customers from Instagram and a website that converts."></textarea>
               </div>
-
-              <button type="submit" class="btn-garnet btn-submit" id="submitBtn">
-                <span>Get Started</span>
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
-                </svg>
-              </button>
-
-              <div id="formSuccessMessage" class="form-success-banner" style="display: none;">
-                Thank you. Your commercial brief has been received. An executive partner will review your requirements and reach out within 24 hours.
-              </div>
+              <!-- honeypot -->
+              <input type="text" name="company_website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button type="submit" class="btn-primary"><span class="btn-label">Book my free consultation</span></button>
+              <p class="form-note">We reply within 24 hours. Your details are only used to answer your enquiry.</p>
+              <div id="form-status" role="status" aria-live="polite"></div>
             </form>
           </div>
+
         </div>
       </div>
     </section>
@@ -1257,8 +1248,8 @@
             <a href="tel:+2348153253639" class="footer-big-phone" aria-label="Telephone: +234 815 325 3639">
               (+234) 815 325 3639
             </a>
-            <a href="mailto:advisory@igraphmedia.com" class="footer-big-email" aria-label="Email: advisory@igraphmedia.com">
-              advisory@igraphmedia.com
+            <a href="mailto:hello@igraphmedia.com.ng" class="footer-big-email" aria-label="Email: hello@igraphmedia.com.ng">
+              hello@igraphmedia.com.ng
             </a>
           </div>
           <div class="footer-connect-wrap">
@@ -1311,5 +1302,6 @@
   <!-- Scripts -->
   <script src="script.js?v=2.3"></script>
   <script src="assets/chatbot.js" defer></script>
+  <script src="assets/contact.js" defer></script>
 </body>
 </html>

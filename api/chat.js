@@ -150,7 +150,7 @@ module.exports = async function handler(req, res) {
     console.error('[Igraph Concierge] Configuration error: GEMINI_API_KEY is not defined in environment variables.');
     return res.status(500).json({
       error: 'Configuration Error',
-      message: 'The concierge assistant is temporarily unavailable. Please reach our team directly at advisory@igraphmedia.com or via WhatsApp.'
+      message: 'The concierge assistant is temporarily unavailable. Please reach our team directly at hello@igraphmedia.com.ng or via WhatsApp.'
     });
   }
 
@@ -279,7 +279,7 @@ module.exports = async function handler(req, res) {
     console.error('[Igraph Concierge] Network/execution error:', err.message);
     return res.status(500).json({
       error: 'Internal Server Error',
-      message: 'We experienced an unexpected error. Please try again or contact us directly at advisory@igraphmedia.com.'
+      message: 'We experienced an unexpected error. Please try again or contact us directly at hello@igraphmedia.com.ng.'
     });
   }
 };
