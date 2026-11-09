@@ -115,7 +115,7 @@ export default function Contact() {
             <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center gap-2.5">
               <img src="/assets/logo-icon-white.png" alt="Igraph Mark" className="w-4 h-4 object-contain" />
               <span className="font-mono text-xs text-[#808080]">
-                Igraph Media Inc. &bull; Enterprise Non-Disclosure Protocols
+                Igraph Media Ltd. &bull; Enterprise Non-Disclosure Protocols
               </span>
             </div>
           </motion.div>

@@ -33,8 +33,42 @@
   --border-light: rgba(255, 255, 255, 0.14);
   --border-active: rgba(255, 255, 255, 0.28);
 
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography: Two Typefaces Max (Display & Text) */
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-text: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: var(--font-text);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Strict Typographic Scale: 14 / 16 / 20 / 32 / 56 */
+  --text-sm: 14px;       /* Captions, Badges, Meta, Pills */
+  --text-base: 16px;     /* Body Copy */
+  --text-md: 20px;       /* Subheadings, Card Titles */
+  --text-xl: 32px;       /* Section Titles (H2) */
+  --text-display: 56px;  /* Hero Titles / Display (H1) */
+
+  /* Line Heights (Generous 1.6 for body copy) */
+  --lh-tight: 1.08;
+  --lh-heading: 1.2;
+  --lh-subhead: 1.35;
+  --lh-body: 1.6;
+
+  /* Consistent 8px Spacing Grid */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-104: 104px;
+  --space-112: 112px;
+  --space-120: 120px;
+
+  /* Vertical Rhythm Between Sections: 96px–120px */
+  --section-rhythm: 104px;
+  --section-rhythm-mobile: 64px;
 
   --max-width: 1200px;
   --header-address-height: 36px;
@@ -58,10 +92,11 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-text);
+  font-size: var(--text-base);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: var(--lh-body);
   overflow-x: hidden;
 }
 
@@ -442,10 +477,11 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5.2vw, var(--text-display));
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.08;
+  line-height: var(--lh-tight);
   color: var(--brand-white);
   margin-bottom: 22px;
 }
@@ -457,9 +493,9 @@ button {
 }
 
 .hero-subtitle {
-  font-size: clamp(16px, 1.3vw, 19px);
-  color: var(--brand-gray);
-  line-height: 1.65;
+  font-family: var(--font-text);
+  font-size: var(--text-base);
+  line-height: var(--lh-body);
   max-width: 680px;
   margin: 0 auto 36px;
   font-weight: 400;
@@ -531,7 +567,7 @@ button {
    3. SECTIONS SHARED
    ============================================================ */
 .section {
-  padding: 100px 0;
+  padding: var(--section-rhythm) 0;
   border-bottom: 1px solid var(--border);
   position: relative;
 }
@@ -566,18 +602,19 @@ button {
 }
 
 .section-title {
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.4vw, var(--text-xl));
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  letter-spacing: -0.025em;
+  line-height: var(--lh-heading);
   color: var(--brand-white);
   margin-bottom: 16px;
 }
 
 .section-subtitle {
   color: var(--brand-gray);
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: var(--text-base);
+  line-height: var(--lh-body);
   font-weight: 400;
 }
 
@@ -585,7 +622,7 @@ button {
    4. SERVICES (LineaDS 2-Column Animated Feature Cards)
    ============================================================ */
 .services-section {
-  padding: 80px 40px !important;
+  padding: var(--section-rhythm) 0 !important;
 }
 
 .services-container {
@@ -985,7 +1022,8 @@ button {
 }
 
 .why-card-title {
-  font-size: 32px;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -995,9 +1033,9 @@ button {
 }
 
 .why-card-desc {
-  font-size: 14px;
-  color: #9ca3af;
-  line-height: 1.6;
+  font-family: var(--font-text);
+  font-size: var(--text-base);
+  line-height: var(--lh-body);
 }
 
 /* Matrix of Platform Squircles (staggered 2 columns) */
@@ -1042,7 +1080,7 @@ button {
   flex-shrink: 0;
 }
 
-/* Card 2: Trusted by 100+ Businesses */
+/* Card 2: Trusted by Over 50+ Brands and Counting */
 .why-card-trusted {
   padding: 44px 36px;
   display: flex;
@@ -1528,7 +1566,7 @@ button {
 .testimonials-section {
   overflow: hidden;
   position: relative;
-  padding: 100px 0 110px;
+  padding: var(--section-rhythm) 0;
 }
 
 .testimonials-slider-wrapper {
@@ -1728,7 +1766,7 @@ button {
    12. HIGH-IMPACT CTA BANNER (LineaDS Box)
    ============================================================ */
 .cta-banner-section {
-  padding: 80px 0;
+  padding: var(--section-rhythm) 0;
 }
 
 .cta-banner-box {
@@ -3146,11 +3184,11 @@ button {
 }
 
 .services-hero-title {
-  font-family: var(--font-sans);
-  font-size: clamp(36px, 5.2vw, 64px);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5.2vw, var(--text-display));
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 1.08;
+  line-height: var(--lh-tight);
   color: #ffffff;
   margin-bottom: 20px;
 }
@@ -3544,9 +3582,10 @@ button {
 }
 
 .subpage-hero-title {
-  font-size: clamp(38px, 5.5vw, 64px);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5.2vw, var(--text-display));
   font-weight: 800;
-  line-height: 1.08;
+  line-height: var(--lh-tight);
   letter-spacing: -0.03em;
   color: #ffffff;
   margin-bottom: 16px;

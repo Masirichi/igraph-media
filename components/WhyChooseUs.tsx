@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
 
           <div className="flex flex-col gap-4">
             
-            {/* Row 1: Card 1 (Formatted for Every Platform) + Card 2 (Trusted by 100+ Businesses) */}
+            {/* Row 1: Card 1 (Formatted for Every Platform) + Card 2 (Trusted by Over 50+ Brands and Counting) */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
               
               {/* Card 1 (Top-Left, Wide: 7 cols) */}
@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
                     Perfectly Formatted for Every Platform
                   </h3>
                   <p className="text-[#9ca3af] text-sm leading-relaxed">
-                    Every edit and campaign is optimized for Google, Meta, TikTok, and YouTube to ensure maximum visibility and business growth.
+                    Every campaign is engineered and optimized for Google, Meta, LinkedIn, X, Snapchat, TikTok, and YouTube to ensure maximum visibility and business growth.
                   </p>
                 </div>
 
@@ -132,10 +132,10 @@ export default function WhyChooseUs() {
                   <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight font-sans">
-                  Trusted by 100+ Businesses
+                  Trusted by Over 50+ Brands and Counting
                 </h3>
                 <p className="text-[#9ca3af] text-sm leading-relaxed">
-                  From rising startups to established brands, we've helped over 100 business owners scale their commercial presence, attract loyal customers, and build lasting authority.
+                  From rising startups to established brands, we've helped over 50+ brands and counting scale their commercial presence, attract loyal customers, and build lasting authority.
                 </p>
                 <div className="flex flex-wrap gap-1.5 pt-2">
                   {brands.map((b) => (

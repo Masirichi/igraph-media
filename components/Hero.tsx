@@ -45,7 +45,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-1.5 text-xs font-mono text-white">
             <span className="text-[#ffb800] tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span><strong>4.9</strong> &bull; 300+ Scaled Brands &bull; Verified Impact</span>
+            <span><strong>4.9</strong> &bull; Over 50+ Brands and Counting &bull; Verified Impact</span>
           </div>
         </motion.div>
 
@@ -87,12 +87,7 @@ export default function Hero() {
             </svg>
           </a>
 
-          <a
-            href="#services"
-            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-white/[0.18] hover:border-white bg-transparent text-white text-xs font-semibold tracking-wider uppercase transition-colors rounded-sm"
-          >
-            <span>Explore Services</span>
-          </a>
+          
         </motion.div>
       </div>
 

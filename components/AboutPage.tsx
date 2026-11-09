@@ -34,8 +34,8 @@ export default function AboutPage() {
           {/* Metrics Strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto bg-neutral-900/60 border border-white/10 rounded-2xl p-6 backdrop-blur-md mb-8">
             <div>
-              <div className="text-3xl font-extrabold text-white">100+</div>
-              <div className="text-xs text-neutral-400 uppercase tracking-wider mt-1">Brands Scaled</div>
+              <div className="text-3xl font-extrabold text-white">50+</div>
+              <div className="text-xs text-neutral-400 uppercase tracking-wider mt-1">Brands and Counting</div>
             </div>
             <div>
               <div className="text-3xl font-extrabold text-white">5M+</div>
