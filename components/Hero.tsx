@@ -45,7 +45,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-1.5 text-xs font-mono text-white">
             <span className="text-[#ffb800] tracking-widest">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span><strong>4.9</strong> &bull; Over 50+ Brands and Counting &bull; Verified Impact</span>
+            <span><strong>4.9★ on Google &amp; Clutch</strong> &bull; Over 50+ Brands and Counting &bull; Verified Client Reviews</span>
           </div>
         </motion.div>
 
