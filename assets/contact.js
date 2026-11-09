@@ -59,7 +59,9 @@ const CONTACT_CONFIG = {
       const hoursLi = document.createElement('li');
       hoursLi.className = 'checklist-item';
       hoursLi.innerHTML = `
-        <span class="checklist-icon" aria-hidden="true">&#x2713;</span>
+        <span class="checklist-icon-wrap" aria-hidden="true">
+          <svg class="checklist-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
         <span>${CONTACT_CONFIG.hours}</span>
       `;
       checklist.appendChild(hoursLi);
@@ -245,7 +247,9 @@ const CONTACT_CONFIG = {
 
       formContainer.innerHTML = `
         <div class="form-success-card" tabindex="-1" id="formSuccessBlock">
-          <div class="form-success-icon" aria-hidden="true">&#x2713;</div>
+          <div class="form-success-icon-wrap" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
           <h3 class="form-success-heading">Thank you for reaching out</h3>
           <p class="form-success-text">
             A member of our team will review your business goals and reach out ${CONTACT_CONFIG.responseTime}.
