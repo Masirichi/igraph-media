@@ -118,12 +118,12 @@ export const IgraphBentoGrid: React.FC = () => {
   // Counter animation for impressions
   useEffect(() => {
     let start = 0;
-    const end = 500;
+    const end = 20;
     const duration = 2000;
-    const stepTime = Math.abs(Math.floor(duration / (end / 10)));
+    const stepTime = Math.abs(Math.floor(duration / end));
 
     const timer = setInterval(() => {
-      start += 5;
+      start += 1;
       if (start >= end) {
         setCount(end);
         clearInterval(timer);
@@ -219,7 +219,7 @@ export const IgraphBentoGrid: React.FC = () => {
           {/* Text Pane */}
           <div className="p-8 sm:p-10 flex flex-col justify-center">
             <p className="text-white text-lg sm:text-xl font-medium leading-relaxed">
-              We collaborate closely with your leadership to architect, launch, and scale high-impact commercial campaigns.
+              We collaborate closely with your leadership to Design, launch, and scale high-impact commercial campaigns.
             </p>
           </div>
         </div>

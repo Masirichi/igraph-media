@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   /* ============================================================
-     BENTO GRID STATS COUNTER ANIMATION (500M+ impressions)
+     BENTO GRID STATS COUNTER ANIMATION (20M+ impressions)
      ============================================================ */
   const impressionCounters = document.querySelectorAll('.animate-counter');
   if ('IntersectionObserver' in window && impressionCounters.length > 0) {
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const el = entry.target;
-          const target = parseInt(el.getAttribute('data-target') || '500', 10);
+          const target = parseInt(el.getAttribute('data-target') || '20', 10);
           const duration = 2000;
           const startTime = performance.now();
           function updateCounter(currentTime) {
