@@ -20,10 +20,10 @@ export default function CaseStudies() {
       footer: "Result: Qualified Academy Leads • 100% Cohort Capacity",
     },
     {
-      metric: "3x Engagement",
+      metric: "500+ Placements",
       title: "City Fidelity",
-      desc: "Completely revamped multi-platform social media strategy and content deployment, tripling audience engagements on Instagram across executive and talent portfolios.",
-      footer: "Strategy: Instagram Architecture • 300% Engagement Surge",
+      desc: "Architected modern B2B talent acquisition funnels, digital branding, and candidate intake systems for corporate recruitment and executive search.",
+      footer: "Strategy: Corporate Recruitment Funnels • +310% Talent Inflow",
     },
   ];
 
