@@ -170,4 +170,37 @@ document.addEventListener('DOMContentLoaded', () => {
       successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   };
+
+  /* ============================================================
+     BENTO GRID STATS COUNTER ANIMATION (500M+ impressions)
+     ============================================================ */
+  const impressionCounters = document.querySelectorAll('.animate-counter');
+  if ('IntersectionObserver' in window && impressionCounters.length > 0) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target') || '500', 10);
+          const duration = 2000;
+          const startTime = performance.now();
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(easeOut * target);
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              el.textContent = target;
+            }
+          }
+          requestAnimationFrame(updateCounter);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    impressionCounters.forEach((el) => counterObserver.observe(el));
+  }
+
 });
