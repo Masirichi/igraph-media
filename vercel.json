@@ -2,6 +2,14 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path(.*)",
+      "has": [{ "type": "host", "value": "igraph-media.vercel.app" }],
+      "destination": "https://igraphmedia.com.ng/:path",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
