@@ -110,9 +110,10 @@ async function sendResendNotification(lead) {
     return;
   }
 
-  const subject = `New enquiry: ${lead.service_label || lead.service_interest} from ${lead.company_name}`;
+  const sourceLabel = lead.source === 'concierge_chat' ? 'Igraph Concierge' : 'Website Form';
+  const subject = `[${sourceLabel}] ${lead.service_label || lead.service_interest} enquiry from ${lead.company_name}`;
   const textContent = `
-New Lead Enquiry Received:
+New Lead Enquiry Received via ${sourceLabel}:
 
 - Name: ${lead.client_name}
 - Brand / Business: ${lead.company_name}

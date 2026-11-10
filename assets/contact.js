@@ -245,6 +245,16 @@ const CONTACT_CONFIG = {
       document.body.classList.remove('form-active');
       const waUrl = `https://wa.me/${CONTACT_CONFIG.whatsappNumber}?text=Hi%20Igraph%20Media%2C%20I%20just%20submitted%20an%20enquiry%20for%20my%20business`;
 
+      // GA4 Conversion Tracking: Contact Form Lead
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'lead_generation',
+          event_label: 'contact_form',
+          method: 'website_form',
+          value: 1
+        });
+      }
+
       formContainer.innerHTML = `
         <div class="form-success-card" tabindex="-1" id="formSuccessBlock">
           <div class="form-success-icon-wrap" aria-hidden="true">

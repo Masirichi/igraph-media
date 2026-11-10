@@ -578,7 +578,8 @@
               goal: this.leadState.data.goal,
               service_interest: this.leadState.data.service_interest,
               contact: userText,
-              website: '' // honeypot must remain empty
+              website: '', // honeypot must remain empty
+              source: 'concierge_chat'
             })
           });
 
@@ -586,6 +587,16 @@
           this.setSubmitting(false);
 
           this.leadState = { active: false, step: 0, data: {} };
+
+          // GA4 Conversion Tracking: Igraph Concierge Lead
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', {
+              event_category: 'lead_generation',
+              event_label: 'igraph_concierge',
+              method: 'concierge_chat',
+              value: 1
+            });
+          }
 
           const confirmation = 'Thank you! Your quote request has been received. A member of our team will review your enquiry and reach out within 24 hours.\n\nYou can also message us directly on WhatsApp anytime: [Chat on WhatsApp](' + WHATSAPP_URL + ')';
           this.renderMessageElement('bot', confirmation);
