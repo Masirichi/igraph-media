@@ -64,6 +64,8 @@ function sanitizeText(str) {
 
 function isOriginAllowed(req) {
   const defaultOrigins = [
+    'https://igraphmedia.com.ng',
+    'https://www.igraphmedia.com.ng',
     'https://igraph-media.vercel.app',
     'https://igraphmedia.com',
     'https://www.igraphmedia.com',
@@ -144,7 +146,6 @@ module.exports = async function handler(req, res) {
 
   // 4. Validate Environment Variables
   const apiKey = process.env.GEMINI_API_KEY;
-  const modelName = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
   if (!apiKey) {
     console.error('[Igraph Concierge] Configuration error: GEMINI_API_KEY is not defined in environment variables.');
@@ -153,6 +154,16 @@ module.exports = async function handler(req, res) {
       message: 'The concierge assistant is temporarily unavailable. Please reach our team directly at hello@igraphmedia.com.ng or via WhatsApp.'
     });
   }
+
+  // Multi-Model Fallback Cascade: prioritize env model if specified, then ultra-fast and resilient models
+  const configuredModel = process.env.GEMINI_MODEL;
+  const defaultCascade = [
+    'gemini-flash-lite-latest',
+    'gemini-3.5-flash-lite',
+    'gemini-3.5-flash',
+    'gemini-3.8-flash'
+  ];
+  const candidateModels = Array.from(new Set([configuredModel, ...defaultCascade].filter(Boolean)));
 
   // 5. Validate & Sanitize Input
   const body = req.body || {};
@@ -223,63 +234,81 @@ module.exports = async function handler(req, res) {
     }
   };
 
-  // 7. Call Gemini API with 25-Second Timeout
+  // 7. Call Gemini API with Multi-Model Fallback Cascade & Overall 25s Timeout
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 25000);
+  const overallTimeoutId = setTimeout(() => controller.abort(), 25000);
 
-  const endpointUrl = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(modelName)}:generateContent?key=${apiKey}`;
+  let replyText = null;
+  let lastError = null;
 
-  try {
-    const upstreamResponse = await fetch(endpointUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(geminiPayload),
-      signal: controller.signal
-    });
+  for (const model of candidateModels) {
+    if (controller.signal.aborted) break;
 
-    clearTimeout(timeoutId);
+    const endpointUrl = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${apiKey}`;
 
-    if (!upstreamResponse.ok) {
-      const errorText = await upstreamResponse.text().catch(() => '');
-      console.error(`[Igraph Concierge] Upstream Gemini error (${upstreamResponse.status}):`, errorText.slice(0, 500));
-      return res.status(502).json({
-        error: 'Upstream Error',
-        message: 'The assistant had trouble generating a reply. Please try again or reach our team via WhatsApp at +234 815 325 3639.'
+    try {
+      const upstreamResponse = await fetch(endpointUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(geminiPayload),
+        signal: controller.signal
       });
+
+      if (!upstreamResponse.ok) {
+        const errorText = await upstreamResponse.text().catch(() => '');
+        console.warn(`[Igraph Concierge] Upstream Gemini error on model '${model}' (${upstreamResponse.status}):`, errorText.slice(0, 300));
+        lastError = `Status ${upstreamResponse.status}`;
+        // Automatically cascade to the next model in the fallback chain on 503, 429, 404, or 500
+        continue;
+      }
+
+      const data = await upstreamResponse.json();
+      const candidate = data.candidates?.[0];
+      const text = candidate?.content?.parts?.[0]?.text;
+
+      if (text) {
+        replyText = text.trim();
+        break; // Successfully generated response!
+      } else {
+        console.warn(`[Igraph Concierge] Empty reply parts from candidate on model '${model}'`);
+      }
+    } catch (err) {
+      if (err.name === 'AbortError') {
+        lastError = 'AbortError';
+        break;
+      }
+      console.warn(`[Igraph Concierge] Request failed on model '${model}':`, err.message);
+      lastError = err.message;
     }
+  }
 
-    const data = await upstreamResponse.json();
-    const candidate = data.candidates?.[0];
-    const replyText = candidate?.content?.parts?.[0]?.text;
+  clearTimeout(overallTimeoutId);
 
-    if (!replyText) {
-      console.warn('[Igraph Concierge] Empty reply from Gemini candidate');
-      return res.status(200).json({
-        reply: "I am here to help you explore Igraph Media's services, request a quote, or schedule a free consultation. How can I assist your business today?"
-      });
-    }
-
-    return res.status(200).json({
-      reply: replyText.trim()
-    });
-
-  } catch (err) {
-    clearTimeout(timeoutId);
-
-    if (err.name === 'AbortError') {
-      console.error('[Igraph Concierge] Upstream request timed out after 20s');
-      return res.status(504).json({
-        error: 'Gateway Timeout',
-        message: 'The assistant took too long to reply. Please try again or message our team directly on WhatsApp.'
-      });
-    }
-
-    console.error('[Igraph Concierge] Network/execution error:', err.message);
-    return res.status(500).json({
-      error: 'Internal Server Error',
-      message: 'We experienced an unexpected error. Please try again or contact us directly at hello@igraphmedia.com.ng.'
+  if (controller.signal.aborted) {
+    console.error('[Igraph Concierge] Upstream request timed out');
+    return res.status(504).json({
+      error: 'Gateway Timeout',
+      message: 'The assistant took too long to reply. Please try again or message our team directly on WhatsApp.'
     });
   }
+
+  if (replyText) {
+    return res.status(200).json({
+      reply: replyText
+    });
+  }
+
+  if (!lastError) {
+    return res.status(200).json({
+      reply: "I am here to help you explore Igraph Media's services, request a quote, or schedule a free consultation. How can I assist your business today?"
+    });
+  }
+
+  console.error('[Igraph Concierge] All candidate models failed. Last error:', lastError);
+  return res.status(502).json({
+    error: 'Upstream Error',
+    message: 'The assistant had trouble generating a reply. Please try again or reach our team via WhatsApp at +234 815 325 3639.'
+  });
 };

@@ -513,6 +513,12 @@
         if (retryBtn) {
           retryBtn.addEventListener('click', () => {
             errorDiv.remove();
+            if (this.messages.length > 0) {
+              const last = this.messages[this.messages.length - 1];
+              if (last && last.role === 'user' && last.content === retryText) {
+                this.messages.pop();
+              }
+            }
             this.sendUserMessage(retryText);
           });
         }
