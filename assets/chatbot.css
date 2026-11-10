@@ -82,7 +82,7 @@
   width: 380px !important;
   max-width: calc(100vw - 32px) !important;
   height: 580px !important;
-  max-height: calc(100vh - 100px) !important;
+  max-height: calc(100dvh - 100px) !important;
   background: #090909 !important;
   border: 1px solid rgba(255, 255, 255, 0.16) !important;
   border-radius: 18px !important;

@@ -1,5 +1,5 @@
 /* ============================================================
-   IGRAPH MEDIA — INTERACTION LAYER
+   IGRAPH MEDIA - INTERACTION LAYER
    LineaDS Style Interactions & FAQ Accordion
    ============================================================ */
 

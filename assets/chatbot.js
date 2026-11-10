@@ -1,5 +1,5 @@
 /**
- * IGRAPH CONCIERGE — BRAND-NATIVE CLIENT ASSISTANT
+ * IGRAPH CONCIERGE - BRAND-NATIVE CLIENT ASSISTANT
  * Productionized vanilla JS client:
  * - Zero client-side API keys or localStorage usage
  * - Communicates strictly with serverless /api/chat and /api/lead

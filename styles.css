@@ -361,7 +361,7 @@ button {
   top: var(--total-header-height);
   left: 0;
   width: 100%;
-  height: calc(100vh - var(--total-header-height));
+  height: calc(100dvh - var(--total-header-height));
   background: rgba(0, 0, 0, 0.98);
   z-index: 999;
   padding: 32px 24px;
@@ -2572,7 +2572,7 @@ button {
   width: 390px;
   max-width: calc(100vw - 36px);
   height: 590px;
-  max-height: calc(100vh - 110px);
+  max-height: calc(100dvh - 110px);
   background: #090909;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
@@ -4230,4 +4230,69 @@ button[type="submit"].btn-garnet {
   background: #ffffff;
   padding: 2px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==========================================================================
+   TASTE STANDARD & ANTI-SLOP UPGRADES (stitch-design-taste / design-taste-frontend)
+   ========================================================================== */
+
+/* 1. Accessible Focus Rings */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #C8102E !important;
+  outline-offset: 3px !important;
+}
+
+/* 2. Tactile Button Interaction Physics */
+.btn-primary:active,
+.btn-garnet:active,
+.btn-outline:active,
+.contact-submit-btn:active,
+.service-cta-btn:active,
+.hero-cta:active {
+  transform: scale(0.98) translateY(1px) !important;
+  transition: transform 0.1s ease !important;
+}
+
+/* 3. Typographic Balance & Line Length Constraints */
+h1, h2, h3,
+.hero-title,
+.subpage-hero-title,
+.section-title,
+.contact-section-title {
+  text-wrap: balance;
+  letter-spacing: -0.025em;
+}
+
+p,
+.hero-desc,
+.subpage-hero-desc,
+.service-desc,
+.contact-info-body,
+.about-intro-text,
+.about-value-desc {
+  max-width: 65ch;
+  line-height: 1.65;
+}
+
+/* 4. Hardware-Accelerated Accessibility / Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

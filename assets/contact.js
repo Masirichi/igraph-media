@@ -1,5 +1,5 @@
 /**
- * IGRAPH MEDIA — CONTACT SECTION BEHAVIOR
+ * IGRAPH MEDIA - CONTACT SECTION BEHAVIOR
  * Client-side validation, accessible state handling, rate limiting & lead submission.
  */
 
@@ -9,7 +9,7 @@ const CONTACT_CONFIG = {
   phoneHref: "tel:+2348153253639",
   email: "hello@igraphmedia.com.ng",
   responseTime: "within 24 hours",
-  hours: "",          // TODO(owner): e.g. "Mon–Fri, 9am–5pm WAT". If empty, hide the hours line entirely. NEVER invent hours.
+  hours: "",          // TODO(owner): e.g. "Mon-Fri, 9am-5pm WAT". If empty, hide the hours line entirely. NEVER invent hours.
   testimonial: null   // TODO(owner): { quote, name, role }. If null, hide the slot. NEVER invent quotes.
 };
 
