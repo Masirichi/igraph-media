@@ -105,6 +105,8 @@ interface TagAnimationConfig {
   delay: number;
 }
 
+const STACK_OFFSETS = [110, 135, 160, 185, 210];
+
 const TAG_CONFIGS: TagAnimationConfig[] = [
   { rotation: -2.5, hoverOffsetX: -6, hoverOffsetY: -4, duration: 3.2, delay: 0 },
   { rotation: 3, hoverOffsetX: 7, hoverOffsetY: -3, duration: 3.8, delay: 0.3 },
@@ -145,6 +147,9 @@ function FeatureTag({ label }: { label: string }) {
  * Two-Column Service Feature Card with Animated Interactive Tags
  */
 function ServiceCardItem({ service, index }: { service: ServiceItem; index: number }) {
+  const topOffset = STACK_OFFSETS[index % STACK_OFFSETS.length];
+  const zIndex = (index + 1) * 10;
+
   return (
     <motion.article
       initial="initial"
@@ -152,8 +157,11 @@ function ServiceCardItem({ service, index }: { service: ServiceItem; index: numb
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: LUXURY_EASE }}
-      className="bg-white rounded-2xl py-8 px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center shadow-xl border border-white/20 overflow-hidden group hover:shadow-2xl transition-all duration-300"
-      style={{ opacity: 0, y: 30 }}
+      className={`sticky bg-white rounded-3xl py-8 px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center shadow-xl border border-black/5 overflow-hidden group hover:shadow-2xl transition-all duration-300 card-${index + 1}`}
+      style={{
+        top: `${topOffset}px`,
+        zIndex: zIndex,
+      }}
     >
       {/* Left Column: Media Visual Anchor */}
       <div className="relative w-full h-[260px] sm:h-[320px] md:h-full min-h-[280px] md:min-h-[360px] rounded-xl overflow-hidden bg-gray-100">
@@ -247,7 +255,7 @@ export default function OperationsBento() {
         </div>
 
         {/* Stack of 5 Animated 2-Column Feature Cards */}
-        <div className="flex flex-col gap-8 md:gap-10">
+        <div className="flex flex-col gap-8 md:gap-10 pb-48 relative">
           {servicesData.map((service, index) => (
             <ServiceCardItem key={service.id} service={service} index={index} />
           ))}

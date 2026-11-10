@@ -109,13 +109,17 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-text);
   font-size: var(--text-base);
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: var(--lh-body);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -750,26 +754,69 @@ button {
 .services-stack-container {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 32px; /* Standard spacing when scrolling */
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-bottom: 200px; /* Ample scroll runway so stacked cards deck is fully enjoyed */
+  position: relative;
 }
 
 .service-feature-card {
-  background: #ffffff;
-  border-radius: 16px; /* rounded-2xl */
-  padding: 32px 24px; /* 32px vertical * 24px horizontal */
+  position: sticky;
   display: grid;
   grid-template-columns: 1fr 1fr; /* grid-cols-1 md:grid-cols-2 */
   gap: 32px; /* gap-8 */
   align-items: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 32px 28px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22), 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  will-change: transform, top;
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+/* Clear transform on active reveal so CSS sticky coordinates remain 100% reliable */
+.service-feature-card.reveal.active {
+  transform: none;
+}
+
+/* Stagger top offsets and z-indexes so stacked cards reveal the tops of previous ones */
+.service-feature-card.card-1,
+.service-feature-card:nth-child(1) {
+  top: 110px;
+  z-index: 10;
+}
+
+.service-feature-card.card-2,
+.service-feature-card:nth-child(2) {
+  top: 135px;
+  z-index: 20;
+}
+
+.service-feature-card.card-3,
+.service-feature-card:nth-child(3) {
+  top: 160px;
+  z-index: 30;
+}
+
+.service-feature-card.card-4,
+.service-feature-card:nth-child(4) {
+  top: 185px;
+  z-index: 40;
+}
+
+.service-feature-card.card-5,
+.service-feature-card:nth-child(5) {
+  top: 210px;
+  z-index: 50;
 }
 
 .service-feature-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35), 0 6px 16px rgba(0, 0, 0, 0.16);
+  border-color: rgba(0, 0, 0, 0.14);
 }
 
 .card-media-col {
@@ -4492,5 +4539,41 @@ p,
   }
   50% {
     transform: translateY(3px) rotate(calc(var(--rot, 0deg) * -0.6));
+  }
+}
+
+@media (max-width: 768px) {
+  .services-stack-container {
+    gap: 24px;
+    padding-bottom: 120px;
+  }
+
+  .service-feature-card {
+    border-radius: 20px;
+  }
+
+  .service-feature-card.card-1,
+  .service-feature-card:nth-child(1) {
+    top: 80px;
+  }
+
+  .service-feature-card.card-2,
+  .service-feature-card:nth-child(2) {
+    top: 94px;
+  }
+
+  .service-feature-card.card-3,
+  .service-feature-card:nth-child(3) {
+    top: 108px;
+  }
+
+  .service-feature-card.card-4,
+  .service-feature-card:nth-child(4) {
+    top: 122px;
+  }
+
+  .service-feature-card.card-5,
+  .service-feature-card:nth-child(5) {
+    top: 136px;
   }
 }
