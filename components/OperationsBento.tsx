@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import BrandIdentityCard from "./ServiceCard";
 
 const LUXURY_EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -98,15 +97,29 @@ const servicesData: ServiceItem[] = [
   },
 ];
 
+interface TagAnimationConfig {
+  rotation: number;
+  hoverOffsetX: number;
+  hoverOffsetY: number;
+  duration: number;
+  delay: number;
+}
+
+const TAG_CONFIGS: TagAnimationConfig[] = [
+  { rotation: -2.5, hoverOffsetX: -6, hoverOffsetY: -4, duration: 3.2, delay: 0 },
+  { rotation: 3, hoverOffsetX: 7, hoverOffsetY: -3, duration: 3.8, delay: 0.3 },
+  { rotation: 2, hoverOffsetX: -5, hoverOffsetY: 4, duration: 2.9, delay: 0.5 },
+  { rotation: -2, hoverOffsetX: 6, hoverOffsetY: 4, duration: 3.4, delay: 0.2 },
+  { rotation: 1.5, hoverOffsetX: -4, hoverOffsetY: 5, duration: 3.0, delay: 0.4 },
+  { rotation: -3, hoverOffsetX: 6, hoverOffsetY: 4, duration: 3.6, delay: 0.1 },
+];
+
 /**
- * Reusable Feature Tag Component
- * Meets prompt specs:
- * bg-gray-100, rounded-full, px-3 py-1.5, flex items-center gap-2, text-sm text-gray-800
- * Inline SVG of solid circle with checkmark inside (#f97316) on the left
+ * Reusable Feature Tag Component with Orange Circle Checkmark
  */
 function FeatureTag({ label }: { label: string }) {
   return (
-    <span className="bg-gray-100 rounded-full px-3 py-1.5 flex items-center gap-2 text-xs md:text-sm text-gray-800 font-medium transition-colors hover:bg-gray-200 select-none">
+    <span className="bg-gray-100 rounded-full px-3 py-1.5 flex items-center gap-2 text-xs md:text-sm text-gray-800 font-medium transition-colors hover:bg-white hover:text-black shadow-sm select-none">
       <svg
         className="w-4 h-4 shrink-0"
         viewBox="0 0 16 16"
@@ -129,20 +142,18 @@ function FeatureTag({ label }: { label: string }) {
 }
 
 /**
- * Two-Column Service Feature Card
- * Meets prompt specs:
- * Main Container: white background, rounded-2xl, p-6 or p-8, grid-cols-1 md:grid-cols-2 gap-8
- * Left Column: object-cover image filling container with rounded-xl
- * Right Column: flex-col gap-4, h3 in text-3xl font-semibold text-gray-900, p in text-gray-600 leading-relaxed, flex flex-wrap gap-3
+ * Two-Column Service Feature Card with Animated Interactive Tags
  */
-function ServiceFeatureCard({ service, index }: { service: ServiceItem; index: number }) {
+function ServiceCardItem({ service, index }: { service: ServiceItem; index: number }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
+      initial="initial"
+      whileHover="hover"
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: LUXURY_EASE }}
       className="bg-white rounded-2xl py-8 px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center shadow-xl border border-white/20 overflow-hidden group hover:shadow-2xl transition-all duration-300"
+      style={{ opacity: 0, y: 30 }}
     >
       {/* Left Column: Media Visual Anchor */}
       <div className="relative w-full h-[260px] sm:h-[320px] md:h-full min-h-[280px] md:min-h-[360px] rounded-xl overflow-hidden bg-gray-100">
@@ -168,11 +179,49 @@ function ServiceFeatureCard({ service, index }: { service: ServiceItem; index: n
           {service.description}
         </p>
 
-        {/* Feature Pills */}
+        {/* Feature Pills with Interactive Floating Animation */}
         <div className="flex flex-wrap gap-2.5 sm:gap-3 mt-2">
-          {service.tags.map((tag) => (
-            <FeatureTag key={tag} label={tag} />
-          ))}
+          {service.tags.map((tag, idx) => {
+            const cfg = TAG_CONFIGS[idx % TAG_CONFIGS.length];
+            return (
+              <motion.div
+                key={tag}
+                variants={{
+                  initial: {
+                    x: 0,
+                    y: 0,
+                    rotate: cfg.rotation,
+                    scale: 1,
+                  },
+                  hover: {
+                    x: cfg.hoverOffsetX,
+                    y: cfg.hoverOffsetY,
+                    rotate: cfg.rotation * 1.25,
+                    scale: 1.05,
+                    transition: {
+                      type: "spring",
+                      stiffness: 350,
+                      damping: 22,
+                    },
+                  },
+                }}
+              >
+                <motion.div
+                  animate={{
+                    y: [-3, 3, -3],
+                  }}
+                  transition={{
+                    duration: cfg.duration,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: cfg.delay,
+                  }}
+                >
+                  <FeatureTag label={tag} />
+                </motion.div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </motion.article>
@@ -200,13 +249,8 @@ export default function OperationsBento() {
         {/* Stack of 5 Animated 2-Column Feature Cards */}
         <div className="flex flex-col gap-8 md:gap-10">
           {servicesData.map((service, index) => (
-            <ServiceFeatureCard key={service.id} service={service} index={index} />
+            <ServiceCardItem key={service.id} service={service} index={index} />
           ))}
-        </div>
-
-        {/* Brand Identity Interactive Showcase Card */}
-        <div className="mt-14 flex justify-center">
-          <BrandIdentityCard />
         </div>
       </div>
     </section>

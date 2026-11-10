@@ -4431,109 +4431,66 @@ p,
 
 
 /* ============================================================
-   BRAND IDENTITY FLOATING SERVICE CARD
+   SERVICES SECTION — FLOATING INTERACTIVE FEATURE TAGS
    ============================================================ */
-.brand-identity-showcase {
-  margin-top: 48px;
+.card-tags-container {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  perspective: 600px;
 }
 
-.brand-identity-card {
-  position: relative;
-  width: 100%;
-  max-width: 448px;
-  height: 460px;
-  border-radius: 24px;
-  background-color: #171717;
-  border: 1px solid #262626;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.brand-identity-card:hover {
-  border-color: #404040;
-}
-
-.brand-identity-content {
-  z-index: 10;
-  user-select: none;
-}
-
-.brand-identity-title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
-}
-
-.brand-identity-desc {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #a3a3a3;
-  margin: 0;
-}
-
-.brand-identity-canvas {
-  position: relative;
-  width: 100%;
-  height: 260px;
-  margin-top: 16px;
-}
-
-.floating-tag-wrapper {
-  position: absolute;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.floating-tag-item {
-  display: inline-block;
-  animation: tagFloat var(--dur, 3.2s) ease-in-out infinite;
-  animation-delay: var(--del, 0s);
-}
-
-.floating-tag-pill {
-  display: inline-block;
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f4f6;
+  color: #1f2937;
+  font-size: 13px;
+  font-weight: 500;
   padding: 6px 14px;
   border-radius: 9999px;
-  background: rgba(38, 38, 38, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(64, 64, 64, 0.6);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-  font-size: 12px;
-  font-weight: 500;
-  color: #e5e5e5;
-  cursor: default;
-  white-space: nowrap;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  will-change: transform;
+  animation: tagIdleFloat var(--dur, 3.2s) ease-in-out infinite;
+  animation-delay: var(--del, 0s);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
-.floating-tag-pill:hover {
-  background: rgba(64, 64, 64, 0.95);
-  color: #ffffff;
+/* Staggered duration, delay, rotation, and spring offsets for each tag */
+.feature-tag:nth-child(1) { --dur: 3.2s; --del: 0s;   --rot: -2.5deg; }
+.feature-tag:nth-child(2) { --dur: 3.8s; --del: 0.3s; --rot: 3deg;    }
+.feature-tag:nth-child(3) { --dur: 2.9s; --del: 0.5s; --rot: 2deg;    }
+.feature-tag:nth-child(4) { --dur: 3.4s; --del: 0.2s; --rot: -2deg;   }
+.feature-tag:nth-child(5) { --dur: 3.0s; --del: 0.4s; --rot: 1.5deg;  }
+.feature-tag:nth-child(6) { --dur: 3.6s; --del: 0.1s; --rot: -3deg;   }
+
+/* When parent service card is hovered, trigger physics displacement */
+.service-feature-card:hover .feature-tag:nth-child(1) { transform: translate(-6px, -4px) rotate(-3.5deg) scale(1.04); }
+.service-feature-card:hover .feature-tag:nth-child(2) { transform: translate(7px, -3px) rotate(4deg) scale(1.04); }
+.service-feature-card:hover .feature-tag:nth-child(3) { transform: translate(-5px, 4px) rotate(2.5deg) scale(1.04); }
+.service-feature-card:hover .feature-tag:nth-child(4) { transform: translate(6px, 4px) rotate(-2.5deg) scale(1.04); }
+.service-feature-card:hover .feature-tag:nth-child(5) { transform: translate(-4px, 5px) rotate(2deg) scale(1.04); }
+.service-feature-card:hover .feature-tag:nth-child(6) { transform: translate(6px, 4px) rotate(-4deg) scale(1.04); }
+
+/* On direct tag hover, highlight and elevate */
+.feature-tag:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14) !important;
+  transform: scale(1.08) translateY(-2px) !important;
+  z-index: 2;
 }
 
-/* Parent card hover triggers spring translation & slight scale */
-.brand-identity-card:hover .tag-1 { transform: translate(-10px, -8px) rotate(-5deg) scale(1.05) !important; }
-.brand-identity-card:hover .tag-2 { transform: translate(12px, -6px) rotate(6.25deg) scale(1.05) !important; }
-.brand-identity-card:hover .tag-3 { transform: translate(-8px, 6px) rotate(3.75deg) scale(1.05) !important; }
-.brand-identity-card:hover .tag-4 { transform: translate(8px, 8px) rotate(-3.75deg) scale(1.05) !important; }
-.brand-identity-card:hover .tag-5 { transform: translate(-6px, 12px) rotate(2.5deg) scale(1.05) !important; }
-.brand-identity-card:hover .tag-6 { transform: translate(10px, 10px) rotate(-7.5deg) scale(1.05) !important; }
-
-@keyframes tagFloat {
+@keyframes tagIdleFloat {
   0%, 100% {
-    transform: translateY(-4px);
+    transform: translateY(-3px) rotate(var(--rot, 0deg));
   }
   50% {
-    transform: translateY(4px);
+    transform: translateY(3px) rotate(calc(var(--rot, 0deg) * -0.6));
   }
 }
