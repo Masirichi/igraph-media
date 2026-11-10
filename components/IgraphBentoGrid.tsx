@@ -136,7 +136,7 @@ export const IgraphBentoGrid: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full max-w-6xl mx-auto py-12 px-4 sm:px-6 font-sans">
+    <div className="w-full font-sans mt-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         
         {/* TOP LEFT CARD: Platforms Card */}
@@ -225,7 +225,7 @@ export const IgraphBentoGrid: React.FC = () => {
         </div>
 
       </div>
-    </section>
+    </div>
   );
 };
 

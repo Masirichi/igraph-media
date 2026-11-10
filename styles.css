@@ -1095,54 +1095,14 @@ button {
 }
 
 /* ============================================================
-   7. WHY CHOOSE US (Bento Grid matching reference mockup)
+   7. WHY CHOOSE US (Bento Grid)
    ============================================================ */
-.why-choose-canvas {
-  background: #ebeae5;
-  border-radius: 28px;
-  padding: 18px 22px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
-  margin-top: 16px;
-}
-
-/* Window Chrome Mockup Header */
-.why-window-header {
-  display: flex;
-  align-items: center;
-  padding: 4px 6px 14px;
-  margin-bottom: 4px;
-}
-
-.why-window-dots {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.why-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.why-dot-red {
-  background: #ff5f56;
-}
-
-.why-dot-yellow {
-  background: #ffbd2e;
-}
-
-.why-dot-green {
-  background: #27c93f;
-}
-
 .why-choose-bento {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
+  margin-top: 32px;
 }
 
 .why-bento-row {
@@ -2548,10 +2508,6 @@ button {
   }
   .impact-cards-grid {
     grid-template-columns: 1fr;
-  }
-  .why-choose-canvas {
-    padding: 16px;
-    border-radius: 20px;
   }
   .why-bento-row-top,
   .why-bento-row-bottom {
