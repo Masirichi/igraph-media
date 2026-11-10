@@ -4274,7 +4274,7 @@ button {
   letter-spacing: 0.08em;
 }
 .impact-before .stage-tag {
-  color: #ef5350;
+  color: var(--text-secondary, #808080);
 }
 .impact-after .stage-tag {
   color: #66bb6a;
