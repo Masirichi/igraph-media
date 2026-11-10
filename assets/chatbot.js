@@ -98,14 +98,14 @@
       // Check if launcher exists; if not, inject it
       if (!document.getElementById('igraphChatLauncher')) {
         const launcherHTML = `
-          <button id="igraphChatLauncher" class="igraph-chat-launcher" aria-label="Open Igraph Concierge chat" aria-haspopup="dialog" aria-expanded="false" aria-controls="igraphChatPanel">
+          <button id="igraphChatLauncher" class="igraph-chat-launcher" aria-label="Ask Igraph Concierge" aria-haspopup="dialog" aria-expanded="false" aria-controls="igraphChatPanel">
             <div class="igraph-launcher-avatar">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
               <span class="igraph-launcher-pulse" aria-hidden="true"></span>
             </div>
-            <span class="igraph-launcher-label">Chat with Igraph</span>
+            <span class="igraph-launcher-label">Ask Igraph Concierge</span>
           </button>
         `;
         document.body.insertAdjacentHTML('beforeend', launcherHTML);
@@ -125,7 +125,7 @@
                   <span class="pulse-dot" aria-hidden="true"></span>
                 </div>
                 <div class="igraph-header-text">
-                  <div class="igraph-header-title">Igraph Concierge</div>
+                  <div class="igraph-header-title">Igraph Concierge &middot; AI assistant</div>
                   <div class="igraph-header-sub">Typically replies instantly</div>
                 </div>
               </div>
@@ -149,10 +149,10 @@
             <div id="igraphMessages" class="igraph-chat-messages" aria-live="polite">
               <!-- Welcome Card -->
               <div class="igraph-welcome-card" id="igraphWelcomeCard">
-                <div class="igraph-welcome-badge">Digital Growth Assistant</div>
-                <div class="igraph-welcome-title">Welcome to Igraph Media</div>
+                <div class="igraph-welcome-badge">AI assistant</div>
+                <div class="igraph-welcome-title">Igraph Concierge</div>
                 <div class="igraph-welcome-text">
-                  Hello! I can answer questions about our services, provide a quote, or guide you to book a free 20-minute consultation with our team.
+                  Hi, I'm Igraph Concierge, Igraph Media's AI assistant. I can answer questions about our services, point you to the right one, or book a free consultation.
                 </div>
                 <div class="igraph-chips-wrap">
                   <button type="button" class="igraph-chip" data-action="consultation">📅 Book a free consultation</button>

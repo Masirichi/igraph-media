@@ -537,7 +537,17 @@
   .igraph-chat-launcher {
     bottom: 18px !important;
     right: 18px !important;
-    padding: 0 14px 0 10px !important;
+    padding: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    justify-content: center !important;
+  }
+  .igraph-chat-launcher .igraph-launcher-label {
+    display: none !important;
+  }
+  .igraph-chat-launcher .igraph-launcher-icon {
+    margin-right: 0 !important;
   }
   
   .igraph-chat-panel {

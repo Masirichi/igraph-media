@@ -155,7 +155,7 @@ New Lead Enquiry Received:
         </tr>
       </table>
 
-      <p style="font-size: 13px; color: #777; margin-top: 24px;">This enquiry was sent via the Igraph Media website contact form.</p>
+      <p style="font-size: 13px; color: #777; margin-top: 24px;">This enquiry was submitted via ${lead.source === 'concierge_chat' ? 'Igraph Concierge' : 'the Igraph Media website contact form'}.</p>
     </div>
   `;
 
