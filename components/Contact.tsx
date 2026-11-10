@@ -34,13 +34,13 @@ export default function Contact() {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.02] text-[11px] font-mono tracking-[0.2em] uppercase text-[#808080] mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B70909]" />
-            Confidential Advisory &bull; Direct Consultation
+            Free consultation &bull; Direct Consultation
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-white tracking-[-0.03em] mb-4">
             Contact <span className="italic font-light text-slate-300">Igraph Media</span>
           </h2>
           <p className="text-[#808080] font-sans font-normal text-base md:text-lg leading-relaxed">
-            Direct executive consultation for business owners, founders, and enterprise leadership seeking digital permanence, cross-platform customer acquisition, and market authority.
+            Direct executive consultation for business owners, founders, and enterprise leadership seeking Growth Engine, cross-platform customer acquisition, and market authority.
           </p>
         </div>
 
@@ -62,13 +62,13 @@ export default function Contact() {
 
               {/* Advisory Card */}
               <div className="bg-[#080808] border border-white/[0.08] p-5 mb-5">
-                <div className="font-mono text-[10px] uppercase tracking-widest text-[#808080] mb-1.5">Client Advisory Services</div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-[#808080] mb-1.5">Free consultation</div>
                 <div className="flex items-center gap-2 text-lg font-bold text-white">
                   <span className="w-2 h-2 rounded-full bg-[#B70909]" />
                   <span>Direct Client Consultation</span>
                 </div>
                 <div className="text-xs text-[#808080] font-mono mt-1.5">
-                  Dedicated Account Operations &bull; GMT+1 (WAT)
+                   &bull; GMT+1 (WAT)
                 </div>
               </div>
 
@@ -92,13 +92,13 @@ export default function Contact() {
               {/* Contact Details */}
               <div className="space-y-3.5 text-sm font-sans">
                 <div>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#808080] block mb-0.5">Confidential Briefs</span>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#808080] block mb-0.5">Enquiries</span>
                   <a href="mailto:advisory@igraphmedia.com" className="text-white hover:underline transition-colors">
                     advisory@igraphmedia.com
                   </a>
                 </div>
                 <div>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#808080] block mb-0.5">Executive Inquiries</span>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#808080] block mb-0.5">Direct Inquiries</span>
                   <a href="mailto:hello@igraphmedia.com" className="text-white hover:underline transition-colors">
                     hello@igraphmedia.com
                   </a>
@@ -115,7 +115,7 @@ export default function Contact() {
             <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center gap-2.5">
               <img src="/assets/logo-icon-white.png" alt="Igraph Mark" className="w-4 h-4 object-contain" />
               <span className="font-mono text-xs text-[#808080]">
-                Igraph Media Ltd. &bull; Enterprise Non-Disclosure Protocols
+                Igraph Media Ltd. &bull; Your details stay private
               </span>
             </div>
           </motion.div>
@@ -135,7 +135,7 @@ export default function Contact() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <h4 className="font-sans text-xl font-bold text-white mb-2">Commercial Brief Received</h4>
+                <h4 className="font-sans text-xl font-bold text-white mb-2">enquiry Received</h4>
                 <p className="text-[#808080] font-sans max-w-md text-sm leading-relaxed mb-6">
                   Thank you. Our executive advisory team will review your operational brief and reach out within 24 hours.
                 </p>

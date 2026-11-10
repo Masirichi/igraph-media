@@ -382,7 +382,7 @@ export default function ServicesPage() {
                 </button>
                 {formSent && (
                   <div className="p-3 bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs rounded-lg text-center">
-                    Thank you. Your commercial brief has been received. An executive partner will reach out within 24 hours.
+                    Thank you. Your enquiry has been received. An a member of our team will reach out within 24 hours.
                   </div>
                 )}
               </form>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const SYSTEM_INSTRUCTION = `You are the Senior Advisory Concierge for IGRAPH MEDIA (https://igraphmedia.com), an elite Independent Media & Brand Advisory.
+const SYSTEM_INSTRUCTION = `You are the Senior Igraph Concierge for IGRAPH MEDIA (https://igraphmedia.com), an elite Own Your Narrative · Digital Growth Agency.
 
 YOUR CORE PURPOSE:
 We believe that every ambitious startup and small business possesses a story powerful enough to challenge industry leaders. You do not just need promotion—you need to own your narrative. Our core purpose is to give growing brands the voice, authority, and presence required to be heard clearly in a noisy marketplace.
@@ -22,7 +22,7 @@ VERIFIED CLIENT RESULTS:
 
 AGENTIC CAPABILITIES:
 1. Lead Qualification: Collects goals, revenue tier, and service focus to provide tailored recommendations.
-2. Appointment Booking: Schedules 20-minute private growth consultations with executive partners.
+2. Appointment Booking: Schedules 20-minute private growth consultations with a member of our teams.
 3. Human Handover: Seamlessly connects visitors to a live human partner via phone, WhatsApp, or instant callback.
 Tone: Welcoming, authoritative, sharp, concise, and easy to understand.`;
 
@@ -57,7 +57,7 @@ export default function SupportAgent() {
     {
       role: "bot",
       content:
-        "**Welcome to Igraph Media Advisory.**\n\nI am your dedicated Growth Concierge powered by Google Gemini. I can qualify your brand for our growth pods, schedule a private 20-minute consultation directly into our calendar, or instantly connect you with an executive human advisor.",
+        "**Welcome to Igraph Media.**\n\nI am your dedicated Growth Concierge powered by Google Gemini. I can qualify your brand for our growth pods, schedule a private 20-minute consultation directly into our calendar, or instantly connect you with an executive human advisor.",
     },
   ]);
 
@@ -131,7 +131,7 @@ export default function SupportAgent() {
           ...prev,
           {
             role: "bot",
-            content: "I am routing your inquiry directly to an executive partner. Connect immediately below:",
+            content: "I am routing your inquiry directly to an a member of our team. Connect immediately below:",
             card: "handover",
             cardData: { reason: text },
           },
@@ -328,7 +328,7 @@ export default function SupportAgent() {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
         </span>
-        <span className="font-sans text-xs font-semibold">Ask Advisory AI</span>
+        <span className="font-sans text-xs font-semibold">Chat with Igraph</span>
         <span className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-[#B70909]/20 text-[#ff6666] border border-[#B70909]/30">
           Agentic
         </span>
@@ -479,7 +479,7 @@ export default function SupportAgent() {
                               onClick={() => handleSendMessage("I want to speak with a human partner")}
                               className="w-full py-1.5 bg-white/10 hover:bg-white/15 text-white text-xs rounded-lg transition-colors"
                             >
-                              👤 Connect to Executive Partner
+                              👤 Connect to a member of our team
                             </button>
                           </div>
                         </div>
@@ -583,7 +583,7 @@ export default function SupportAgent() {
                             </a>
                             <a
                               href={`https://wa.me/2348153253639?text=${encodeURIComponent(
-                                "Hello Igraph Media Advisory. I would like to speak with an executive partner regarding our brand growth."
+                                "Hello Igraph Media Advisory. I would like to speak with an a member of our team regarding our brand growth."
                               )}`}
                               target="_blank"
                               rel="noreferrer"
@@ -625,7 +625,7 @@ export default function SupportAgent() {
 
                             {isCallbackSent && (
                               <div className="p-2 bg-emerald-950/40 border border-emerald-500/30 rounded text-[11px] text-emerald-400 font-semibold">
-                                ✓ Callback request logged. An executive partner will phone you at {callbackPhone} within 15 minutes.
+                                ✓ Callback request logged. An a member of our team will phone you at {callbackPhone} within 15 minutes.
                               </div>
                             )}
                           </div>

@@ -1,7 +1,7 @@
 {
   "name": "igraph-media",
   "version": "2.5.0",
-  "description": "Igraph Media — Independent Media & Brand Advisory. High-performance frontend with Vercel Serverless & Supabase backend.",
+  "description": "Igraph Media — Own Your Narrative · Digital Growth Agency. High-performance frontend with Vercel Serverless & Supabase backend.",
   "private": true,
   "main": "server.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "keywords": [
     "igraph-media",
-    "brand-advisory",
+    "digital-growth-agency",
     "public-relations",
     "digital-advertising",
     "supabase",

@@ -149,7 +149,7 @@
             <div id="igraphMessages" class="igraph-chat-messages" aria-live="polite">
               <!-- Welcome Card -->
               <div class="igraph-welcome-card" id="igraphWelcomeCard">
-                <div class="igraph-welcome-badge">Brand Advisory Assistant</div>
+                <div class="igraph-welcome-badge">Digital Growth Assistant</div>
                 <div class="igraph-welcome-title">Welcome to Igraph Media</div>
                 <div class="igraph-welcome-text">
                   Hello! I can answer questions about our services, provide a quote, or guide you to book a free 20-minute consultation with our team.
@@ -178,7 +178,7 @@
                 </div>
               </form>
               <div class="igraph-footer-note">
-                AI assistant. For complex projects, a human advisor will follow up.
+                AI assistant. For complex projects, our team will follow up.
               </div>
             </footer>
           </div>
@@ -587,7 +587,7 @@
 
           this.leadState = { active: false, step: 0, data: {} };
 
-          const confirmation = 'Thank you! Your quote request has been received. A senior member of our team will review your business requirements and reach out within 24 hours.\n\nYou can also message us directly on WhatsApp anytime: [Chat on WhatsApp](' + WHATSAPP_URL + ')';
+          const confirmation = 'Thank you! Your quote request has been received. A member of our team will review your enquiry and reach out within 24 hours.\n\nYou can also message us directly on WhatsApp anytime: [Chat on WhatsApp](' + WHATSAPP_URL + ')';
           this.renderMessageElement('bot', confirmation);
           this.messages.push({ role: 'assistant', content: confirmation });
           this.saveSession();

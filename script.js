@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
       company_name: document.getElementById('cCompany')?.value || 'Client Brand',
       email: document.getElementById('cEmail')?.value || '',
       phone: document.getElementById('cPhone')?.value || '',
-      service_interest: document.getElementById('cService')?.value || 'General Advisory',
+      service_interest: document.getElementById('cService')?.value || 'General Growth Enquiry',
       monthly_budget: document.getElementById('cBudget')?.value || '',
       timeline: document.getElementById('cTimeline')?.value || 'Within 30 days',
       message: document.getElementById('cMessage')?.value || '',

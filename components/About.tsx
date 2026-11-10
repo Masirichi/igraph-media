@@ -37,11 +37,11 @@ export default function About() {
               <div className="flex items-center gap-3 mb-6">
                 <img src="/assets/logo-icon-white.png" alt="Igraph Mark" className="w-7 h-7 object-contain" />
                 <span className="font-mono text-xs uppercase tracking-[0.14em] text-[#808080]">
-                  Established 2024 &bull; Independent Brand Advisory
+                  Established 2024 &bull; Digital Growth Agency
                 </span>
               </div>
               <h3 className="font-sans text-2xl md:text-3xl font-bold text-white tracking-tight mb-5">
-                Own Your Narrative, Command Your Market
+                Own Your Narrative, Grow Your Business
               </h3>
               <div className="space-y-4">
                 <p className="text-[#c4c4c4] font-sans font-normal text-sm md:text-base leading-relaxed">
@@ -68,14 +68,14 @@ export default function About() {
 
             <div className="pt-8 mt-8 border-t border-white/[0.08] flex items-center justify-between flex-wrap gap-4">
               <div>
-                <div className="text-xl font-bold text-white">Commercial Excellence</div>
+                <div className="text-xl font-bold text-white">Strategy • Public Relations • Growth</div>
                 <div className="text-xs text-[#808080] font-mono">Strategy &bull; Public Relations &bull; Growth</div>
               </div>
               <a
                 href="#contact"
                 className="px-6 py-3 bg-[#B70909] hover:bg-[#cf1111] active:bg-[#940707] text-white text-xs font-semibold tracking-wider uppercase transition-colors"
               >
-                Initiate Advisory
+                Get in touch
               </a>
             </div>
           </motion.div>

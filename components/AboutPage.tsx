@@ -16,7 +16,7 @@ export default function AboutPage() {
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-neutral-300 uppercase tracking-widest mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B70909]" />
-            Who We Are &bull; Independent Brand Advisory
+            Who We Are &bull; Digital Growth Agency
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">

@@ -23,7 +23,7 @@ import SupportAgent from "./SupportAgent";
  *   - Gray: #808080
  *   - Accent Buttons: Garnet Red (#B70909)
  * Typography: Plus Jakarta Sans
- * Positioning: Independent Media & Brand Advisory
+ * Positioning: Own Your Narrative · Digital Growth Agency
  * Menu: Home, Services, About, Contact us
  */
 export default function IgraphMediaLanding() {

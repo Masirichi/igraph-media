@@ -22,7 +22,7 @@ export default function ContactPage() {
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs text-neutral-300 uppercase tracking-widest mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B70909]" />
-            Initiate Advisory &bull; Direct Consultation
+            Get in touch &bull; Direct Consultation
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
@@ -34,7 +34,7 @@ export default function ContactPage() {
           </p>
 
           <p className="text-sm md:text-base text-neutral-400 max-w-2xl mx-auto leading-relaxed mb-8">
-            Whether you are looking to secure high-visibility press coverage, launch high-ROI digital advertising campaigns, or establish lasting market authority, our senior advisory partners are ready to assist.
+            Whether you are looking to secure high-visibility press coverage, launch high-ROI digital advertising campaigns, or establish lasting market authority, our our team are ready to assist.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -74,7 +74,7 @@ export default function ContactPage() {
             <div className="p-8 bg-neutral-900 border border-white/10 rounded-2xl flex flex-col justify-between hover:border-[#B70909]/40 transition-colors">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#B70909] font-bold block mb-2">Confidential Inquiries</span>
-                <h3 className="text-xl font-bold text-white mb-2">Advisory Briefs</h3>
+                <h3 className="text-xl font-bold text-white mb-2">Enquiries</h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-4">Send campaign briefs, RFPs, and strategic partnership proposals directly to our strategy partners.</p>
                 <a href="mailto:advisory@igraphmedia.com" className="text-base font-bold text-white block mb-4 hover:text-[#B70909]">advisory@igraphmedia.com</a>
               </div>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                   <div className="w-8 h-8 rounded-lg bg-[#B70909]/20 border border-[#B70909]/40 text-[#B70909] font-bold text-xs flex items-center justify-center flex-shrink-0">02</div>
                   <div>
                     <h4 className="text-sm font-bold text-white">Private 20-Minute Strategy Session</h4>
-                    <p className="text-xs text-neutral-400 mt-0.5">A focused session with an executive partner to identify immediate growth bottlenecks and opportunities.</p>
+                    <p className="text-xs text-neutral-400 mt-0.5">A focused session with an a member of our team to identify immediate growth bottlenecks and opportunities.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">

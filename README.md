@@ -1,6 +1,6 @@
 # Igraph Media — Production Web Platform & Backend Infrastructure
 
-> **Independent Media & Brand Advisory**  
+> **Own Your Narrative · Digital Growth Agency**  
 > Establishing Enduring Brand Authority through data-backed public relations and precision digital advertising.
 
 ---

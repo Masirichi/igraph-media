@@ -28,7 +28,7 @@ export default function Navbar() {
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center justify-between">
             <div className="flex items-center gap-2 text-white">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B70909] shadow-[0_0_8px_#B70909] animate-pulse" />
-              <span>Independent Media &amp; Brand Advisory</span>
+              <span>Own Your Narrative &middot; Digital Growth Agency</span>
             </div>
             <div className="hidden sm:flex items-center gap-3 text-xs text-[#808080]">
               <a href="tel:+2348153253639" className="hover:text-white transition-colors">
@@ -140,7 +140,7 @@ export default function Navbar() {
           </div>
 
           <div className="pt-6 border-t border-white/[0.08] font-mono text-xs text-[#808080]">
-            <div>Independent Brand Advisory</div>
+            <div>Digital Growth Agency</div>
             <a href="tel:+2348153253639" className="text-white block mt-1">
               +234 (815) 325-3639
             </a>

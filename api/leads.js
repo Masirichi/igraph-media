@@ -38,7 +38,7 @@ module.exports = async function handler(req, res) {
       return res.status(200).json({
         success: true,
         saved_locally: true,
-        message: 'Lead received and queued for advisory review.',
+        message: 'Lead received and queued for team review.',
         lead: body
       });
     }
@@ -52,7 +52,7 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     console.error('[API Leads] Server error:', err);
     return res.status(500).json({
-      error: 'Internal server error processing lead brief.',
+      error: 'Internal server error processing lead enquiry.',
       details: err.message
     });
   }

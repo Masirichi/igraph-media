@@ -37,7 +37,7 @@ module.exports = async function handler(req, res) {
     return res.status(201).json({
       success: true,
       data: result.data,
-      message: 'Human advisor handover registered in Supabase.'
+      message: 'Human team handover registered in Supabase.'
     });
 
   } catch (err) {
