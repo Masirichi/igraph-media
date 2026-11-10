@@ -21,7 +21,7 @@ export default function CaseStudies() {
     },
     {
       metric: "3x Engagement",
-      title: "90's Management",
+      title: "City Fidelity",
       desc: "Completely revamped multi-platform social media strategy and content deployment, tripling audience engagements on Instagram across executive and talent portfolios.",
       footer: "Strategy: Instagram Architecture • 300% Engagement Surge",
     },

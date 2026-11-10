@@ -17,7 +17,7 @@ OUR 6 CORE SERVICES:
 VERIFIED CLIENT RESULTS:
 - Cocu Atelier: 21k followers in 3 months, 5M+ organic impressions (Creative Director: Katrin K.).
 - TFZ Cakes and Academy: Qualified training cohort leads (Founder: Tobarin .O).
-- 90's Management: Tripled Instagram engagement rate.
+- City Fidelity: Tripled Instagram engagement rate.
 - Creator Linda: Custom content strategies for client commercial success.
 
 AGENTIC CAPABILITIES:
@@ -280,7 +280,7 @@ export default function SupportAgent() {
         "**TFZ Cakes & Academy:**\n\nWe generate consistent qualified leads for their culinary academy cohorts, founded by Tobarin .O.";
     } else if (q.includes("90")) {
       base =
-        "**90's Management:**\n\nWe restructured their brand media strategy, resulting in a **3x increase in Instagram engagement**.";
+        "**City Fidelity:**\n\nWe restructured their brand media strategy, resulting in a **3x increase in Instagram engagement**.";
     } else if (q.includes("phone") || q.includes("contact") || q.includes("call")) {
       base =
         "**Direct Contact Channels:**\n\n• Direct Phone: **+234 (815) 325-3639**\n• Advisory: **advisory@igraphmedia.com**\n• General: **hello@igraphmedia.com**";

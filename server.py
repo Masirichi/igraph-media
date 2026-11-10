@@ -58,7 +58,7 @@ OUR 8 CORE SERVICES:
 VERIFIED CLIENT RESULTS & CASE STUDIES:
 - Cocu Atelier: Grew social media presence to 21k within 3 months organically, amassing over 5 million organic traffic impressions (Creative Director: Katrin K.).
 - TFZ Cakes and Academy: Generated high-intent qualified leads for their culinary academy training programs (Founder: Tobarin .O).
-- 90's Management: Revamped complete social media strategy and tripled engagements on Instagram across every campaign.
+- City Fidelity: Revamped complete social media strategy and tripled engagements on Instagram across every campaign.
 - Creator Linda: Designed tailored content strategies delivering commercial business success and audience loyalty.
 - Additional Scaling Brands: Unifera, Hexaves, Gidavest, Perfection Beauty Home, DandyAyanfe, Arie & Arin, Techregard, Moderncrux, Cityfidelity.
 

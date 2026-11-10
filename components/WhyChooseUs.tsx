@@ -7,7 +7,7 @@ const LUXURY_EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function WhyChooseUs() {
   const brands = [
-    "90's Management",
+    "City Fidelity",
     "TFZ Cakes & Academy",
     "Cocu Atelier",
     "Creator Linda",

@@ -37,7 +37,7 @@ const SERVICES_DATA: ServiceItem[] = [
       "Build a strong online presence and foster meaningful connections with your audience. Our social media wizards will manage your profiles, create engaging content, and implement strategic campaigns to boost engagement and drive leads.",
     deliverables: [
       "Daily profile management, aesthetic curation & community nurturing",
-      "Proven engagement frameworks (e.g. Cocu Atelier 21k growth, 90's Management 3x engagement)",
+      "Proven engagement frameworks (e.g. Cocu Atelier 21k growth, City Fidelity 3x engagement)",
       "Monthly content calendars, video reel scripting & inbound lead routing",
     ],
     ctaLabel: "Scale Your Presence",
@@ -337,7 +337,7 @@ export default function ServicesPage() {
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Cocu Atelier, 90's Management"
+                    placeholder="e.g. Cocu Atelier, City Fidelity"
                     className="w-full bg-black border border-white/15 rounded-lg px-4 py-2.5 text-xs text-white outline-none focus:border-[#B70909]"
                   />
                 </div>

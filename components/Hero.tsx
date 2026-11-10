@@ -7,7 +7,7 @@ const LUXURY_EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function Hero() {
   const brands = [
-    "90'S MANAGEMENT",
+    "CITY FIDELITY",
     "DANDYAYANFE",
     "ARIE & ARIN",
     "HEXAVES",

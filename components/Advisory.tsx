@@ -25,7 +25,7 @@ export default function Advisory() {
       quote:
         "Managing executive brand portfolios requires absolute media precision. Igraph Media revamped our entire social media strategy and tripled our engagements on Instagram across every campaign.",
       author: "Executive Operations",
-      role: "90's Management",
+      role: "City Fidelity",
       initials: "90",
     },
     {

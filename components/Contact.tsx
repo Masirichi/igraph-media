@@ -16,7 +16,7 @@ export default function Contact() {
   const partnerBrands = [
     "Cocu Atelier",
     "TFZ Cakes and Academy",
-    "90's Management",
+    "City Fidelity",
     "Creator Linda",
     "Unifera",
     "Hexaves",
@@ -170,7 +170,7 @@ export default function Contact() {
                     type="text"
                     id="company"
                     required
-                    placeholder="e.g. Cocu Atelier, 90's Management, Unifera, TFZ Cakes"
+                    placeholder="e.g. Cocu Atelier, City Fidelity, Unifera, TFZ Cakes"
                     className="w-full bg-[#000000] border border-white/[0.12] px-4 py-3 text-white text-sm focus:border-white/[0.4] focus:outline-none transition-colors rounded-sm"
                   />
                 </div>
