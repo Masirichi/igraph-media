@@ -74,6 +74,24 @@
   --header-address-height: 36px;
   --header-nav-height: 68px;
   --total-header-height: 104px;
+
+  /* Button Spacing System Tokens (Master Prompt E) */
+  --btn-min-h: 48px;
+  --btn-min-h-sm: 44px;
+  --btn-pad-x: 28px;
+  --btn-pad-x-sm: 20px;
+  --btn-icon-gap: 10px;
+  --btn-gap: 12px;          /* between adjacent buttons */
+  --btn-space-before: 28px; /* between text and the button/group that follows */
+  --btn-space-card: 20px;   /* inside cards */
+  --btn-edge: 16px;         /* fixed buttons from viewport edges */
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --btn-gap: 16px;
+    --btn-space-before: 32px;
+  }
 }
 
 /* Base Reset */
@@ -265,18 +283,79 @@ button {
   gap: 12px;
 }
 
-/* Button System — Luxury Pill Uniformity (Matches Reference Image) */
-.btn-garnet {
+/* ============================================================
+   BUTTON SPACING & SIZING SYSTEM (Master Prompt E)
+   ============================================================ */
+:where(.btn) {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--btn-icon-gap);
+  min-height: var(--btn-min-h);
+  padding: 0 var(--btn-pad-x);
+  line-height: 1.2;
+  text-align: center;
+  max-width: 100%;
+}
+
+:where(.btn-sm) {
+  min-height: var(--btn-min-h-sm);
+  padding: 0 var(--btn-pad-x-sm);
+}
+
+:where(.btn-icon-only) {
+  min-width: var(--btn-min-h-sm);
+  min-height: var(--btn-min-h-sm);
+  padding: 0;
+}
+
+/* groups: spacing comes from gap ONLY (never margins on the buttons themselves) */
+:where(.btn-group, .cta-actions, .cta-buttons, .hero-actions) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--btn-gap);
+  align-items: center;
+}
+
+/* space between content above and a button or group below it */
+:where(p, h1, h2, h3, h4, ul, ol, figure, blockquote) + :where(.btn, .btn-group, .cta-actions, .cta-buttons, .hero-actions) {
+  margin-top: var(--btn-space-before);
+}
+
+/* inside cards */
+:where(.card, .service-card, .case-card, .case-detail-card, .impact-card) :where(.btn, .btn-group, .case-detail-btn) {
+  margin-top: var(--btn-space-card);
+}
+
+/* mobile: stack, full width, no overflow */
+@media (max-width: 600px) {
+  :where(.btn-group, .cta-actions, .cta-buttons, .hero-actions) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  :where(.btn, .btn-garnet, .btn-ghost-mono, .footer-connect-btn) {
+    width: 100%;
+    white-space: normal;
+  }
+}
+
+/* Button System — Luxury Pill Uniformity (Matches Reference Image) */
+.btn-garnet {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-icon-gap);
+  min-height: var(--btn-min-h);
+  padding: 0 var(--btn-pad-x);
+  line-height: 1.2;
+  max-width: 100%;
   background-color: var(--garnet-red);
   color: #ffffff;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  padding: 12px 28px;
   border-radius: 999px !important;
   border: 1px solid var(--garnet-red);
   transition: all 0.25s ease;
@@ -314,16 +393,20 @@ button {
 }
 
 .btn-ghost-mono {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--btn-icon-gap);
+  min-height: var(--btn-min-h);
+  padding: 0 var(--btn-pad-x);
+  line-height: 1.2;
+  max-width: 100%;
   background: transparent;
   color: var(--brand-white);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  padding: 12px 28px;
   border-radius: 999px !important;
   border: 1px solid rgba(255, 255, 255, 0.4);
   transition: all 0.25s ease;
@@ -342,9 +425,21 @@ button {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 32px;
-  height: 32px;
+  width: var(--btn-min-h-sm);
+  height: var(--btn-min-h-sm);
+  min-width: var(--btn-min-h-sm);
+  min-height: var(--btn-min-h-sm);
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--brand-white);
+}
 }
 
 .hamburger span {
@@ -940,9 +1035,12 @@ button {
   color: var(--text-muted);
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding-top: 16px;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: var(--btn-space-card);
   border-top: 1px solid var(--border);
+  margin-top: auto;
 }
 
 .impact-dot {
@@ -1738,22 +1836,26 @@ button {
 
 .faq-question {
   width: 100%;
-  padding: 22px 0;
+  min-height: 56px;
+  padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   text-align: left;
   font-size: 16px;
   font-weight: 600;
   color: var(--brand-white);
   transition: color 0.15s ease;
+  line-height: 1.4;
 }
 
-.faq-question:hover {
-  color: #e0e0e0;
+.faq-question span:first-child {
+  flex: 1 1 auto;
 }
 
 .faq-toggle-icon {
+  flex-shrink: 0;
   font-family: var(--font-mono);
   font-size: 18px;
   color: var(--brand-gray);
@@ -1789,7 +1891,8 @@ button {
   padding: var(--section-rhythm) 0;
 }
 
-.cta-banner-box {
+.cta-banner-box,
+.cta-banner-card {
   background: #080808;
   border: 1px solid var(--border-light);
   border-radius: 4px;
@@ -1799,7 +1902,8 @@ button {
   overflow: hidden;
 }
 
-.cta-glow {
+.cta-glow,
+.cta-ambient-glow {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1837,18 +1941,20 @@ button {
   margin-bottom: 18px;
 }
 
-.cta-sub {
+.cta-sub,
+.cta-desc {
   font-size: 15px;
   color: var(--brand-gray);
   line-height: 1.65;
-  margin-bottom: 32px;
+  margin-bottom: var(--btn-space-before);
 }
 
-.cta-buttons {
+.cta-buttons,
+.cta-actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: var(--btn-gap);
 }
 
 /* ============================================================
@@ -2221,16 +2327,33 @@ button {
   color: var(--garnet-red);
 }
 
+.footer-big-email,
+.footer-email-line a,
+.footer-email-anchor {
+  display: inline-block;
+  line-height: 1.4;
+}
+
 .footer-connect-wrap {
   display: flex;
   justify-content: center;
+  margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+  .footer-connect-wrap {
+    margin-top: 20px;
+  }
 }
 
 .footer-connect-btn {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 28px;
+  justify-content: center;
+  gap: var(--btn-icon-gap);
+  min-height: var(--btn-min-h-sm);
+  padding: 0 var(--btn-pad-x);
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 999px;
   font-family: var(--font-sans);
@@ -2239,6 +2362,7 @@ button {
   color: #ffffff;
   text-decoration: none;
   transition: all 0.25s ease;
+  line-height: 1.2;
 }
 
 .footer-connect-btn:hover {
@@ -2414,12 +2538,17 @@ button {
     padding-top: calc(var(--total-header-height) + 36px);
     padding-bottom: 48px;
   }
-  .hero-actions {
+  .hero-actions,
+  .cta-buttons,
+  .cta-actions {
     flex-direction: column;
+    align-items: stretch;
     width: 100%;
+    gap: var(--btn-gap);
   }
-  .btn-garnet, .btn-ghost-mono {
+  .btn-garnet, .btn-ghost-mono, .footer-connect-btn {
     width: 100%;
+    white-space: normal;
   }
   .why-card-platforms,
   .why-card-trusted,
@@ -4163,19 +4292,22 @@ button {
   font-family: var(--font-mono);
 }
 .case-detail-btn {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: var(--btn-icon-gap);
+  min-height: var(--btn-min-h-sm);
+  padding: 0 var(--btn-pad-x-sm);
   font-size: 12px;
   font-weight: 600;
   color: #ffffff;
-  padding: 8px 18px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
   text-decoration: none;
   transition: all 0.2s ease;
-  margin-top: 8px;
+  line-height: 1.2;
 }
 .case-detail-btn:hover {
   background: #ffffff;

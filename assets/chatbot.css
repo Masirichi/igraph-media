@@ -7,12 +7,12 @@
 /* 1. Floating Launcher Button */
 .igraph-chat-launcher {
   position: fixed !important;
-  bottom: 24px !important;
-  right: 24px !important;
+  bottom: max(var(--btn-edge, 16px), env(safe-area-inset-bottom)) !important;
+  right: max(var(--btn-edge, 16px), env(safe-area-inset-right)) !important;
   z-index: 99999 !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 10px !important;
+  gap: var(--btn-icon-gap, 10px) !important;
   height: 48px !important;
   min-width: 48px !important;
   padding: 0 18px 0 12px !important;
@@ -312,13 +312,13 @@
 .igraph-chips-wrap {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 7px !important;
-  margin-top: 6px !important;
+  gap: 8px !important;
+  margin-top: 8px !important;
 }
 
 .igraph-chip {
   min-height: 40px !important;
-  padding: 7px 12px !important;
+  padding: 8px 14px !important;
   background: #171717 !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   border-radius: 9999px !important;
@@ -329,7 +329,7 @@
   text-align: left !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 6px !important;
+  gap: 8px !important;
   text-decoration: none !important;
   transition: all 0.15s ease !important;
   font-family: inherit !important;
@@ -440,7 +440,7 @@
 .igraph-input-row {
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 12px !important;
   background: #161616 !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   border-radius: 12px !important;
@@ -535,8 +535,8 @@
 /* Mobile Viewport (< 480px) */
 @media (max-width: 480px) {
   .igraph-chat-launcher {
-    bottom: 18px !important;
-    right: 18px !important;
+    bottom: max(var(--btn-edge, 16px), env(safe-area-inset-bottom)) !important;
+    right: max(var(--btn-edge, 16px), env(safe-area-inset-right)) !important;
     padding: 0 !important;
     width: 48px !important;
     height: 48px !important;
