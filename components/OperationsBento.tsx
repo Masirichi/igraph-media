@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import BrandIdentityCard from "./ServiceCard";
 
 const LUXURY_EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -134,7 +135,7 @@ function FeatureTag({ label }: { label: string }) {
  * Left Column: object-cover image filling container with rounded-xl
  * Right Column: flex-col gap-4, h3 in text-3xl font-semibold text-gray-900, p in text-gray-600 leading-relaxed, flex flex-wrap gap-3
  */
-function ServiceCard({ service, index }: { service: ServiceItem; index: number }) {
+function ServiceFeatureCard({ service, index }: { service: ServiceItem; index: number }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 30 }}
@@ -199,8 +200,13 @@ export default function OperationsBento() {
         {/* Stack of 5 Animated 2-Column Feature Cards */}
         <div className="flex flex-col gap-8 md:gap-10">
           {servicesData.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
+            <ServiceFeatureCard key={service.id} service={service} index={index} />
           ))}
+        </div>
+
+        {/* Brand Identity Interactive Showcase Card */}
+        <div className="mt-14 flex justify-center">
+          <BrandIdentityCard />
         </div>
       </div>
     </section>
